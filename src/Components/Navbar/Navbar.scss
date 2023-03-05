@@ -1,5 +1,32 @@
 @import "src/assets/style/variables";
 
+nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1vh 1vw 0 1vw;
+}
+
+.connexion{
+  display: none;
+}
+
+.connexion-none{
+  display: inline;
+}
+
+.end{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1vw;
+}
+.start{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .show-nav{
   position: absolute;
   top: 0;
@@ -19,11 +46,17 @@
 
 .show-nav>li>a{
   text-decoration: none;
-  color: black;
+  color: white;
+  transition: color .2s;
+
 }
 
 .show-nav>li>a:active{
-  color: black;
+  color: white;
+}
+
+.show-nav>li>a:hover{
+  color: $light-green;
 }
 
 .dont-show{
@@ -93,7 +126,24 @@
 }
 
 @media screen and (min-width:767px){
-  .nav_burger{
+  .nav_burger,.quit_button{
     display: none;
   }
+  .dont-show{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3vw;
+    list-style: none;
+  }
+  .dont-show>li>a{
+    color: black;
+    text-decoration: none;
+    transition: color .2s;
+  }
+
+  .dont-show>li>a:hover{
+    color: $light-green;
+  }
 }
+
