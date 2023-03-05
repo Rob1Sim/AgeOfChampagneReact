@@ -13,24 +13,36 @@ function Navbar(){
         setIsOpen(!isOpen);
     };
 
+    const [language, setLanguage] = useState('fr');
+
+    const handleChange = (event) => {
+        setLanguage(event.target.value);
+    }
+
 
     return(
         <nav>
-            <a href="#" aria-label="Liens vers l'accueil"><img src={logo} alt="Logo"/></a>
-            <ul className={`nav-ul ${isOpen ? "show-nav" : "dont-show"} `}>
+            <div className="start">
+                <a href="#" aria-label="Liens vers l'accueil"><img src={logo} alt="Logo"/></a>
+                <ul className={`nav-ul ${isOpen ? "show-nav" : "dont-show"} `}>
 
-                <li><a href="" className="nav-link" onClick={toggleMenu}>Les cartes</a></li>
-                <li><a href="" className="nav-link" onClick={toggleMenu}>Les vignerons partenaires</a></li>
-                <li><a href="" className="nav-link" onClick={toggleMenu}>Les animations</a></li>
-                <li><a href="" className="nav-link" onClick={toggleMenu}>Déconnexion</a></li>
-                <button className="quit_button" onClick={toggleMenu} aria-label="Bouton ouvre la barre de navigation">
-                    <span className="quit"></span>
-                </button>
+                    <li><a href="" className="nav-link" onClick={toggleMenu}>Les cartes</a></li>
+                    <li><a href="" className="nav-link" onClick={toggleMenu}>Les vignerons partenaires</a></li>
+                    <li><a href="" className="nav-link" onClick={toggleMenu}>Les animations</a></li>
+                    <li><a href="" className="nav-link connexion-none" onClick={toggleMenu}>Déconnexion</a></li>
+                    <button className="quit_button" onClick={toggleMenu} aria-label="Bouton ouvre la barre de navigation">
+                        <span className="quit"></span>
+                    </button>
 
-            </ul>
+                </ul>
+            </div>
             <button className={`nav_burger ${isOpen ? "dont-show-burger" : "show-burger"} `} onClick={toggleMenu} aria-label="Bouton ouvre la barre de navigation">
                 <span className="burger_bar"></span>
             </button>
+            <div className="end">
+                <a href="" className="connexion" onClick={toggleMenu}>Déconnexion</a>
+                <img className="btn-img" src={franceFlag}/>
+            </div>
         </nav>
 
 )
