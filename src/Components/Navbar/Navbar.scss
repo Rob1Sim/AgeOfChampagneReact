@@ -31,6 +31,30 @@
 
 }
 
+.quit,.quit::before{
+  visibility: visible;
+  display: block;
+  width: 40px;
+  height: 3px;
+  position: relative;
+  border-radius: 3px;
+  background: $dark-brown;
+  transform: rotateZ(-45deg);
+}
+
+.quit::before{
+  content: "";
+  position: absolute;
+  transform:  rotateZ(90deg);
+  left: 0;
+}
+
+.quit_button{
+  background: none;
+  border: none;
+  width: max-content;
+  height: 30px;
+}
 
 @media screen and (min-width:767px){
   .nav_burger{
