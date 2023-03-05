@@ -10,7 +10,9 @@ function Navbar(){
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleMenu = () => {
-        setIsOpen(!isOpen);
+        if(window.screen.width<767){
+            setIsOpen(!isOpen);
+        }
     };
 
     const [language, setLanguage] = useState('fr');
