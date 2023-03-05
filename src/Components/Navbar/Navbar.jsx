@@ -29,6 +29,7 @@ function Navbar(){
                     <li><a href="" className="nav-link" onClick={toggleMenu}>Les cartes</a></li>
                     <li><a href="" className="nav-link" onClick={toggleMenu}>Les vignerons partenaires</a></li>
                     <li><a href="" className="nav-link" onClick={toggleMenu}>Les animations</a></li>
+                    <li><a href="" className="nav-link connexion-none" onClick={toggleMenu}>Mon profil</a></li>
                     <li><a href="" className="nav-link connexion-none" onClick={toggleMenu}>Déconnexion</a></li>
                     <button className="quit_button" onClick={toggleMenu} aria-label="Bouton ouvre la barre de navigation">
                         <span className="quit"></span>
@@ -40,6 +41,7 @@ function Navbar(){
                 <span className="burger_bar"></span>
             </button>
             <div className="end">
+                <a href="" className="connexion" onClick={toggleMenu}>Mon profil</a>
                 <a href="" className="connexion" onClick={toggleMenu}>Déconnexion</a>
                 <img className="btn-img" src={franceFlag}/>
             </div>
