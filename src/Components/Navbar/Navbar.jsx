@@ -28,7 +28,7 @@ function Navbar(){
                 </button>
 
             </ul>
-            <button className="nav_burger" onClick={toggleMenu} aria-label="Bouton ouvre la barre de navigation">
+            <button className={`nav_burger ${isOpen ? "dont-show-burger" : "show-burger"} `} onClick={toggleMenu} aria-label="Bouton ouvre la barre de navigation">
                 <span className="burger_bar"></span>
             </button>
         </nav>

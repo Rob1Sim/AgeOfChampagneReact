@@ -56,6 +56,42 @@
   height: 30px;
 }
 
+.burger_bar,.burger_bar::before,.burger_bar::after{
+  visibility: visible;
+  display: block;
+  width: 30px;
+  height: 3px;
+  position: relative;
+  border-radius: 3px;
+  background: $dark-brown;
+}
+
+.burger_bar::before,.burger_bar::after{
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.burger_bar::after{
+  transform: translateY(8px);
+}
+
+
+.burger_bar::before{
+  transform: translateY(-8px);
+}
+
+.dont-show-burger{
+  display: none;
+}
+
+.nav_burger{
+  background: none;
+  border: none;
+  width: max-content;
+  height: 20px;
+}
+
 @media screen and (min-width:767px){
   .nav_burger{
     display: none;
