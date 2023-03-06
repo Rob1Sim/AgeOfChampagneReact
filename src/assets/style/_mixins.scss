@@ -1,0 +1,17 @@
+@import "_variables.scss";
+
+@mixin brown-button{
+  border:none;
+  background-color: $light-brown;
+  font-size: 150%;
+  color:white;
+  border-radius: 15px;
+  height: 5%;
+  padding: 5px 15px;
+  transition: background-color 0.5s;
+}
+
+@mixin brown-button-focus{
+  background-color: $dark-brown;
+  outline-offset: -2px;
+}
