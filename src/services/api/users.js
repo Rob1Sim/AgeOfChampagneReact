@@ -1,4 +1,4 @@
-export const BASE_URL = "http://127.0.0.1:35729/api";
+export const BASE_URL = "http://127.0.0.1:8000/api";
 export function getMe() {
   return fetch(`${BASE_URL}/me`, { credentials: "include" }).then(
     (response) => {
@@ -15,5 +15,5 @@ export function loginUrl() {
 }
 
 export function logoutUrl() {
-  return new URL(`${BASE_URL}/logout`);
+  return `${BASE_URL}/logout`;
 }
