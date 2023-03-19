@@ -19,9 +19,7 @@ function Provider({ children }) {
 }
 
 Provider.propTypes = {
-  children: PropTypes.string,
+  children: PropTypes.object.isRequired,
 };
-Provider.defaultProps = {
-  children: "<p>Error</p>",
-};
+
 export default Provider;
