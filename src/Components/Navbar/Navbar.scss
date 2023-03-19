@@ -48,18 +48,23 @@ nav{
   background-color: $light-brown;
 }
 
-.show-nav>li>a{
+.show-nav>li>button>a{
   text-decoration: none;
   color: white;
   transition: color .2s;
 
 }
+.show-nav>li>button{
+  all: unset;
+  font-family: 'gotham', sans-serif;
+}
+
 
 .show-nav>li>a:active{
   color: white;
 }
 
-.show-nav>li>a:hover{
+.show-nav>li>button>a:hover{
   color: $light-green;
 }
 
@@ -140,13 +145,17 @@ nav{
     gap: 3vw;
     list-style: none;
   }
-  .dont-show>li>a{
+  .dont-show>li>button>a{
     color: black;
     text-decoration: none;
     transition: color .2s;
   }
+  .dont-show>li>button{
+    all: unset;
+    font-family: 'gotham', sans-serif;
+  }
 
-  .dont-show>li>a:hover{
+  .dont-show>li>button>a:hover{
     color: $light-green;
   }
 }
