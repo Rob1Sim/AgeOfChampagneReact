@@ -21,5 +21,6 @@ module.exports = {
   ],
   rules: {
     "prettier/prettier": ["error"],
+    "eslint-disable-next-line import/no-unresolved": "error"
   },
 };
