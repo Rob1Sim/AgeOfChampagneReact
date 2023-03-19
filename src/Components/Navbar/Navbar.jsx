@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import logo from "../../images/favicon/favicon-32x32.png";
 import franceFlag from "../../images/flags/france.png";
 import "./Navbar.scss";
+import UserContext from "../../contexts/user/index";
+import {logoutUrl} from "../../services/api/users.js";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-
+  const userContext = useContext(UserContext);
   const toggleMenu = () => {
     if (window.screen.width < 767) {
       setIsOpen(!isOpen);
@@ -50,13 +52,23 @@ function Navbar() {
             </button>
           </li>
           <li>
-            <button
-              type="button"
-              className="nav-link connexion-none"
-              onClick={toggleMenu}
-            >
-              <a href="">Déconnexion</a>
-            </button>
+            {userContext !== null ? (
+              <button
+                type="button"
+                className="nav-link connexion-none"
+                onClick={toggleMenu}
+              >
+                <a href={logoutUrl()}>Déconnexion</a>
+              </button>
+            ) : (
+              <button
+                type="button"
+                className="nav-link connexion-none"
+                onClick={toggleMenu}
+              >
+                <a href="">Connexion</a>
+              </button>
+            )}
           </li>
           <button
             type="button"
