@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import logo from "../../images/favicon/favicon-32x32.png";
 import "./Navbar.scss";
 import UserContext from "../../contexts/user/index";
-import {loginUrl, logoutUrl} from "../../services/api/users";
+import { logoutUrl } from "../../services/api/users";
 import Language from "./Language/Language";
 
 function Navbar() {
