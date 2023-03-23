@@ -4,7 +4,8 @@
     "link-to-partners": "Les vignerons partenaires",
     "link-to-animations": "Les animations",
     "login": "Connexion",
-    "logout": "Déconnexion"
+    "logout": "Déconnexion",
+    "profile": "Profil"
   },
 
   "en": {
@@ -12,6 +13,7 @@
     "link-to-partners": "Partner winemakers",
     "link-to-animations": "Animations",
     "login": "Login",
-    "logout": "Logout"
+    "logout": "Logout",
+    "profile": "Profile"
   }
 }
