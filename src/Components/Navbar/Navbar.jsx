@@ -1,10 +1,9 @@
 import React, { useContext, useState } from "react";
 import logo from "../../images/favicon/favicon-32x32.png";
-import franceFlag from "../../images/flags/france.png";
 import "./Navbar.scss";
 import UserContext from "../../contexts/user/index";
-import { logoutUrl } from "../../services/api/users";
-import Language from "./Language/Language.jsx";
+import {loginUrl, logoutUrl} from "../../services/api/users";
+import Language from "./Language/Language";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,12 +14,6 @@ function Navbar() {
     }
   };
 
-  const [language, setLanguage] = useState("fr");
-
-  const handleChange = (event) => {
-    setLanguage(event.target.value);
-  };
-  console.log(userData !== null && userData !== undefined);
   return (
     <nav>
       <div className="start">
@@ -71,7 +64,7 @@ function Navbar() {
                 className="nav-link connexion-none"
                 onClick={toggleMenu}
               >
-                <a className="nav-link connexion-none" href="">
+                <a className="nav-link connexion-none" href={loginUrl()}>
                   Connexion
                 </a>
               </button>
@@ -96,7 +89,7 @@ function Navbar() {
         <span className="burger_bar" />
       </button>
 
-      {true ? (
+      {userData !== null && userData !== undefined ? (
         <div className="end">
           <a className="profile" href="">
             Mon profile
@@ -109,7 +102,7 @@ function Navbar() {
       ) : (
         <div className="end">
           <button type="button" className="connexion">
-            <a href="">Connexion</a>
+            <a href={loginUrl()}>Connexion</a>
           </button>
           <Language />
         </div>
