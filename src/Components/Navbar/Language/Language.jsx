@@ -8,7 +8,9 @@ import { useTranslation } from "react-i18next";
 function Language() {
   const [language, setLanguage] = useState("fr");
   const { i18n } = useTranslation();
-  const [selectedLanguage, setSelectedLanguage] = useState(franceFlag);
+  const [selectedLanguage, setSelectedLanguage] = useState(() =>
+    i18n.resolvedLanguage === "fr" ? franceFlag : usFlag
+  );
   /**
    * Change la langue du pays au clique (drapeau, langue du site)
    */
