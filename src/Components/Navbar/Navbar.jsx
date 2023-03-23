@@ -4,10 +4,12 @@ import "./Navbar.scss";
 import UserContext from "../../contexts/user/index";
 import { logoutUrl } from "../../services/api/users";
 import Language from "./Language/Language";
+import { useTranslation } from "react-i18next";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const { userData } = useContext(UserContext);
+  const { t } = useTranslation("navbar");
   const toggleMenu = () => {
     if (window.screen.width < 767) {
       setIsOpen(!isOpen);
@@ -25,17 +27,17 @@ function Navbar() {
         <ul className={`nav-ul ${isOpen ? "show-nav" : "dont-show"} `}>
           <li>
             <button type="button" className="nav-link" onClick={toggleMenu}>
-              <a href="">Les cartes</a>
+              <a href="">{t("link-to-cards")}</a>
             </button>
           </li>
           <li>
             <button type="button" className="nav-link" onClick={toggleMenu}>
-              <a href="">Les vignerons partenaires</a>
+              <a href="">{t("link-to-partners")}</a>
             </button>
           </li>
           <li>
             <button type="button" className="nav-link" onClick={toggleMenu}>
-              <a href="">Les animations</a>
+              <a href="">{t("link-to-animations")}</a>
             </button>
           </li>
           <li>
@@ -45,7 +47,7 @@ function Navbar() {
               onClick={toggleMenu}
             >
               <a className="nav-link connexion-none" href="">
-                Mon profil
+                {t("profile")}
               </a>
             </button>
           </li>
@@ -57,7 +59,7 @@ function Navbar() {
                 onClick={toggleMenu}
               >
                 <a className="nav-link connexion-none" href={logoutUrl()}>
-                  Déconnexion
+                  {t("logout")}
                 </a>
               </button>
             ) : (
@@ -67,7 +69,7 @@ function Navbar() {
                 onClick={toggleMenu}
               >
                 <a className="nav-link connexion-none" href="">
-                  Connexion
+                  {t("login")}
                 </a>
               </button>
             )}
@@ -94,17 +96,17 @@ function Navbar() {
       {userData !== null && userData !== undefined ? (
         <div className="end">
           <a className="profile" href="">
-            Mon profile
+            {t("profile")}
           </a>
           <button type="button" className="connexion">
-            <a href={logoutUrl()}>Déconnexion</a>
+            <a href={logoutUrl()}>{t("logout")}</a>
           </button>
           <Language />
         </div>
       ) : (
         <div className="end">
           <button type="button" className="connexion">
-            <a href="">Connexion</a>
+            <a href="">{t("login")}</a>
           </button>
           <Language />
         </div>
