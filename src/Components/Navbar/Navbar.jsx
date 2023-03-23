@@ -4,6 +4,7 @@ import franceFlag from "../../images/flags/france.png";
 import "./Navbar.scss";
 import UserContext from "../../contexts/user/index";
 import { logoutUrl } from "../../services/api/users";
+import Language from "./Language/Language.jsx";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -103,22 +104,14 @@ function Navbar() {
           <button type="button" className="connexion">
             <a href={logoutUrl()}>Déconnexion</a>
           </button>
-          <img
-            className="btn-img"
-            src={franceFlag}
-            alt="Drapeau du pays sélectionné"
-          />
+          <Language />
         </div>
       ) : (
         <div className="end">
           <button type="button" className="connexion">
             <a href="">Connexion</a>
           </button>
-          <img
-            className="btn-img"
-            src={franceFlag}
-            alt="Drapeau du pays sélectionné"
-          />
+          <Language />
         </div>
       )}
     </nav>
