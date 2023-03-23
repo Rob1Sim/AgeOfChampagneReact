@@ -3,11 +3,11 @@ import logo from "../../images/favicon/favicon-32x32.png";
 import franceFlag from "../../images/flags/france.png";
 import "./Navbar.scss";
 import UserContext from "../../contexts/user/index";
-import {logoutUrl} from "../../services/api/users.js";
+import { logoutUrl } from "../../services/api/users";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const userContext = useContext(UserContext);
+  const { userData } = useContext(UserContext);
   const toggleMenu = () => {
     if (window.screen.width < 767) {
       setIsOpen(!isOpen);
@@ -19,7 +19,7 @@ function Navbar() {
   const handleChange = (event) => {
     setLanguage(event.target.value);
   };
-
+  console.log(userData !== null && userData !== undefined);
   return (
     <nav>
       <div className="start">
@@ -52,7 +52,7 @@ function Navbar() {
             </button>
           </li>
           <li>
-            {userContext !== null ? (
+            {userData !== null && userData !== undefined ? (
               <button
                 type="button"
                 className="nav-link connexion-none"
@@ -89,12 +89,15 @@ function Navbar() {
         <span className="burger_bar" />
       </button>
       <div className="end">
-        <a href="" className="connexion" onClick={toggleMenu}>
-          Mon profil
-        </a>
-        <a href="" className="connexion" onClick={toggleMenu}>
-          Déconnexion
-        </a>
+        {userData !== null && userData !== undefined ? (
+          <button type="button" className="connexion" onClick={toggleMenu}>
+            <a href={logoutUrl()}>Déconnexion</a>
+          </button>
+        ) : (
+          <button type="button" className="connexion" onClick={toggleMenu}>
+            <a href="">Connexion</a>
+          </button>
+        )}
         <img
           className="btn-img"
           src={franceFlag}

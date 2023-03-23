@@ -1,4 +1,4 @@
-@import "src/assets/style/variables";
+@import "src/assets/style/_variables";
 
 a{
   font-family: 'gotham', sans-serif;
@@ -162,8 +162,8 @@ nav{
 
 @media screen and (min-width:1000px){
   .connexion{
+    all: unset;
     display: inline;
-
   }
   .connexion-none{
     display: none;
@@ -174,13 +174,13 @@ nav{
     margin: 0 3vw 0 3vw;
 
 }
-  .dont-show>li>a,.connexion{
+  .dont-show>li>a,.connexion>a{
     color: black;
     text-decoration: none;
     transition: color .2s;
   }
 
-  .dont-show>li>a:hover,.connexion:hover{
+  .dont-show>li>a:hover,.connexion>a:hover{
     color: $light-green;
   }
 }
