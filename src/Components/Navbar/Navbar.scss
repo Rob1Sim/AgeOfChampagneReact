@@ -133,11 +133,15 @@ nav{
   width: max-content;
   height: 20px;
 }
+.profile{
+  display: none;
+}
 
 @media screen and (min-width:767px){
   .nav_burger,.quit_button{
     display: none;
   }
+
   .dont-show{
     display: flex;
     align-items: center;
@@ -165,6 +169,9 @@ nav{
     all: unset;
     display: inline;
   }
+  .profile{
+    display: inline;
+  }
   .connexion-none{
     display: none;
   }
@@ -174,13 +181,13 @@ nav{
     margin: 0 3vw 0 3vw;
 
 }
-  .dont-show>li>a,.connexion>a{
+  .dont-show>li>a,.connexion>a,.profile{
     color: black;
     text-decoration: none;
     transition: color .2s;
   }
 
-  .dont-show>li>a:hover,.connexion>a:hover{
+  .dont-show>li>a:hover,.connexion>a:hover,.profile:hover{
     color: $light-green;
   }
 }

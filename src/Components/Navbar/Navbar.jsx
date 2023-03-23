@@ -48,7 +48,9 @@ function Navbar() {
               className="nav-link connexion-none"
               onClick={toggleMenu}
             >
-              <a href="">Mon profil</a>
+              <a className="nav-link connexion-none" href="">
+                Mon profil
+              </a>
             </button>
           </li>
           <li>
@@ -58,7 +60,9 @@ function Navbar() {
                 className="nav-link connexion-none"
                 onClick={toggleMenu}
               >
-                <a href={logoutUrl()}>Déconnexion</a>
+                <a className="nav-link connexion-none" href={logoutUrl()}>
+                  Déconnexion
+                </a>
               </button>
             ) : (
               <button
@@ -66,7 +70,9 @@ function Navbar() {
                 className="nav-link connexion-none"
                 onClick={toggleMenu}
               >
-                <a href="">Connexion</a>
+                <a className="nav-link connexion-none" href="">
+                  Connexion
+                </a>
               </button>
             )}
           </li>
@@ -88,22 +94,33 @@ function Navbar() {
       >
         <span className="burger_bar" />
       </button>
-      <div className="end">
-        {userData !== null && userData !== undefined ? (
-          <button type="button" className="connexion" onClick={toggleMenu}>
+
+      {true ? (
+        <div className="end">
+          <a className="profile" href="">
+            Mon profile
+          </a>
+          <button type="button" className="connexion">
             <a href={logoutUrl()}>Déconnexion</a>
           </button>
-        ) : (
-          <button type="button" className="connexion" onClick={toggleMenu}>
+          <img
+            className="btn-img"
+            src={franceFlag}
+            alt="Drapeau du pays sélectionné"
+          />
+        </div>
+      ) : (
+        <div className="end">
+          <button type="button" className="connexion">
             <a href="">Connexion</a>
           </button>
-        )}
-        <img
-          className="btn-img"
-          src={franceFlag}
-          alt="Drapeau du pays sélectionné"
-        />
-      </div>
+          <img
+            className="btn-img"
+            src={franceFlag}
+            alt="Drapeau du pays sélectionné"
+          />
+        </div>
+      )}
     </nav>
   );
 }
