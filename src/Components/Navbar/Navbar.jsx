@@ -64,7 +64,7 @@ function Navbar() {
                 className="nav-link connexion-none"
                 onClick={toggleMenu}
               >
-                <a className="nav-link connexion-none" href={loginUrl()}>
+                <a className="nav-link connexion-none" href="">
                   Connexion
                 </a>
               </button>
@@ -102,7 +102,7 @@ function Navbar() {
       ) : (
         <div className="end">
           <button type="button" className="connexion">
-            <a href={loginUrl()}>Connexion</a>
+            <a href="">Connexion</a>
           </button>
           <Language />
         </div>
