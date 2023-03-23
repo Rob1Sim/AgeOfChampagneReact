@@ -4,10 +4,12 @@ import "./Navbar.scss";
 import UserContext from "../../contexts/user/index";
 import { logoutUrl } from "../../services/api/users";
 import Language from "./Language/Language";
+import { useTranslation } from "react-i18next";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const { userData } = useContext(UserContext);
+  const { t } = useTranslation("navbar");
   const toggleMenu = () => {
     if (window.screen.width < 767) {
       setIsOpen(!isOpen);
@@ -25,7 +27,7 @@ function Navbar() {
         <ul className={`nav-ul ${isOpen ? "show-nav" : "dont-show"} `}>
           <li>
             <button type="button" className="nav-link" onClick={toggleMenu}>
-              <a href="">Les cartes</a>
+              <a href="">{t("link-to-cards")}</a>
             </button>
           </li>
           <li>
