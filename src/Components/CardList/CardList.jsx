@@ -11,5 +11,5 @@ export function CardList() {
   }, []);
 
   // eslint-disable-next-line react/react-in-jsx-scope
-  return cardData.map((card) => <div>{card.name}</div>);
+  return cardData.map((card) => <div key={card.id}>{card.name}</div>);
 }
