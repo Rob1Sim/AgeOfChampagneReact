@@ -5,5 +5,5 @@ export function fetchAllCards() {
 }
 
 export function cardImgUrl(cardId) {
-  return `${BASE_URL}/cartes/${cardId}`;
+  return `${BASE_URL}/cartes/${cardId}/image`;
 }
