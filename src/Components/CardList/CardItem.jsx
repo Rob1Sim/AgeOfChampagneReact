@@ -4,7 +4,7 @@ import { cardImgUrl } from "../../services/api/cards";
 export function CardItem({ data }) {
   return (
     <div>
-      <img src={cardImgUrl(data.contenuImage)} alt={data.nom} />
+      <img src={cardImgUrl(data.id)} alt={data.nom} />
     </div>
   );
 }
