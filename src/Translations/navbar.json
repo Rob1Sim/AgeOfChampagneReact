@@ -5,7 +5,8 @@
     "link-to-animations": "Les animations",
     "login": "Connexion",
     "logout": "Déconnexion",
-    "profile": "Profil"
+    "profile": "Profil",
+    "AdminPanel": "Panel administrateur"
   },
 
   "en": {
@@ -14,6 +15,7 @@
     "link-to-animations": "Animations",
     "login": "Login",
     "logout": "Logout",
-    "profile": "Profile"
+    "profile": "Profile",
+    "AdminPanel": "Admin Panel"
   }
 }

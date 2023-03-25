@@ -22,6 +22,7 @@ module.exports = {
   rules: {
     "prettier/prettier": ["error"],
     "import/no-unresolved": "error",
-    "import/no-extraneous-dependencies": "error"
+    "import/no-extraneous-dependencies": "error",
+    "jsx-a11y/anchor-is-valid": "error"
   },
 };

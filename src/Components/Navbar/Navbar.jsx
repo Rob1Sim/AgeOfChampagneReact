@@ -2,7 +2,11 @@ import React, { useContext, useState } from "react";
 import logo from "../../images/favicon/favicon-32x32.png";
 import "./Navbar.scss";
 import UserContext from "../../contexts/user/index";
-import { logoutUrl } from "../../services/api/users";
+import {
+  loginToAdminPanel,
+  loginUrl,
+  logoutUrl,
+} from "../../services/api/users";
 import Language from "./Language/Language";
 import { useTranslation } from "react-i18next";
 
@@ -17,6 +21,7 @@ function Navbar() {
   };
   if (userData !== null && userData !== undefined) {
     // TODO: Rediriger sur la page de connexion
+
   }
   return (
     <nav>
@@ -68,7 +73,7 @@ function Navbar() {
                 className="nav-link connexion-none"
                 onClick={toggleMenu}
               >
-                <a className="nav-link connexion-none" href="">
+                <a className="nav-link connexion-none" href={loginUrl()}>
                   {t("login")}
                 </a>
               </button>
@@ -95,6 +100,11 @@ function Navbar() {
 
       {userData !== null && userData !== undefined ? (
         <div className="end">
+          {userData.roles.includes("ROLE_ADMIN") ? (
+            <a href={loginToAdminPanel()} className="profile">{t("AdminPanel")}</a>
+          ) : (
+            ""
+          )}
           <a className="profile" href="">
             {t("profile")}
           </a>
@@ -106,7 +116,7 @@ function Navbar() {
       ) : (
         <div className="end">
           <button type="button" className="connexion">
-            <a href="">{t("login")}</a>
+            <a href={loginUrl()}>{t("login")}</a>
           </button>
           <Language />
         </div>

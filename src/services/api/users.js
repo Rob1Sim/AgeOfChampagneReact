@@ -18,3 +18,7 @@ export function loginUrl() {
 export function logoutUrl() {
   return `${BASE_URL_WITHOUT_API}/logout`;
 }
+
+export function loginToAdminPanel() {
+  return `${BASE_URL_WITHOUT_API}/admin`;
+}
