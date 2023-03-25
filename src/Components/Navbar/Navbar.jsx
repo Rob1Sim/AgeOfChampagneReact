@@ -1,4 +1,6 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useContext, useState } from "react";
+import { useTranslation } from "react-i18next";
 import logo from "../../images/favicon/favicon-32x32.png";
 import "./Navbar.scss";
 import UserContext from "../../contexts/user/index";
@@ -8,7 +10,6 @@ import {
   logoutUrl,
 } from "../../services/api/users";
 import Language from "./Language/Language";
-import { useTranslation } from "react-i18next";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,7 +22,6 @@ function Navbar() {
   };
   if (userData !== null && userData !== undefined) {
     // TODO: Rediriger sur la page de connexion
-
   }
   return (
     <nav>
@@ -101,7 +101,9 @@ function Navbar() {
       {userData !== null && userData !== undefined ? (
         <div className="end">
           {userData.roles.includes("ROLE_ADMIN") ? (
-            <a href={loginToAdminPanel()} className="profile">{t("AdminPanel")}</a>
+            <a href={loginToAdminPanel()} className="profile">
+              {t("AdminPanel")}
+            </a>
           ) : (
             ""
           )}
