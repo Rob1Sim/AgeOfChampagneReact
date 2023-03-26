@@ -22,7 +22,7 @@ export function fetchCard(cardId) {
  * @returns {Promise<Response>}
  */
 export function fetchCruFromCard(cruLink) {
-  return fetch(`${BASE_URL_WITHOUT_API}/${cruLink}`, {
+  return fetch(`${BASE_URL_WITHOUT_API}${cruLink}`, {
     credentials: "include",
   }).then((response) => {
     if (!response.ok) {
