@@ -15,11 +15,16 @@ export function CardList() {
     });
   }, []);
 
-  
+
   function handleClick(card) {
     console.log("Card clicked:", card);
     const lastClickedCard = JSON.parse(window.sessionStorage.getItem("lastClickedCards") || "[]");
-    lastClickedCard.push(card.id);
+    if (!lastClickedCard.includes(card.id)) {
+      lastClickedCard.push(card.id);
+      if (lastClickedCard.length > 10){
+        lastClickedCard.shift();
+      }
+    }
     if (lastClickedCard.length > 10){
       lastClickedCard.shift();
     }
