@@ -10,7 +10,7 @@ export function CardList() {
     fetchAllCards().then((data) => {
       setCardData(data["hydra:member"]);
       setCardList(data["hydra:member"].map((card) =>
-        <CardItem key={card.id} data={card}/>
+        <CardItem key={card.id} data={card} onClick={() => handleClick(card)}/>
       ));
     });
   }, []);
