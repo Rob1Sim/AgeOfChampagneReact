@@ -19,24 +19,33 @@ export function CardList() {
   function handleClick(card) {
     console.log("Card clicked:", card);
     const lastClickedCard = JSON.parse(window.sessionStorage.getItem("lastClickedCards") || "[]");
-    lastClickedCard.push(card);
+    lastClickedCard.push(card.id);
     if (lastClickedCard.length > 10){
       lastClickedCard.shift();
     }
     window.sessionStorage.setItem("lastClickedCards", JSON.stringify(lastClickedCard));
   }
 
-  const lastClickedCardsJson = window.sessionStorage.getItem("lastClickedCards") || "[]";
-  console.log("lastClickedCardsJson:", lastClickedCardsJson);
-  const lastClickedCards = JSON.parse(lastClickedCardsJson);
+  const lastClickedCardsJson = window.sessionStorage.getItem("lastClickedCards");
+  let lastClickedCards = [];
 
+  if (lastClickedCardsJson) {
+    try {
+      lastClickedCards = JSON.parse(lastClickedCardsJson);
+    } catch (e) {
+      console.error("Invalid JSON in session storage:", lastClickedCardsJson);
+    }
+  }
 
-  // eslint-disable-next-line react/react-in-jsx-scope
-  return <>
-  Liste des 10 dernières cartes : 
-  {lastClickedCards.map((card) => (
-    <div key={10 + card.id}>{card.name}</div>
-  ))}
-  Toutes les cartes :
-  {cardList}</>
+  return (
+    <>
+      Liste des 10 dernières cartes : 
+      {lastClickedCards.map((cardId) => {
+        const card = cardData.find(c => c.id === cardId);
+        return card ? <div className="lastCards" key={card.id}>{card.nom}</div> : null;
+      })}
+      Toutes les cartes :
+      {cardList}
+    </>
+  );
 }
