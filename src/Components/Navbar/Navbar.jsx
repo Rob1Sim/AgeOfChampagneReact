@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { Link } from "wouter";
 import logo from "../../images/favicon/favicon-32x32.png";
 import "./Navbar.scss";
 import UserContext from "../../contexts/user/index";
@@ -26,23 +27,23 @@ function Navbar() {
   return (
     <nav>
       <div className="start">
-        <a href="#" aria-label="Liens vers l'accueil">
+        <Link href="/cartes" aria-label="Liens vers l'accueil">
           <img src={logo} alt="Logo" />
-        </a>
+        </Link>
         <ul className={`nav-ul ${isOpen ? "show-nav" : "dont-show"} `}>
           <li>
             <button type="button" className="nav-link" onClick={toggleMenu}>
-              <a href="">{t("link-to-cards")}</a>
+              <Link href="/cartes">{t("link-to-cards")}</Link>
             </button>
           </li>
           <li>
             <button type="button" className="nav-link" onClick={toggleMenu}>
-              <a href="">{t("link-to-partners")}</a>
+              <Link href="/partenaires">{t("link-to-partners")}</Link>
             </button>
           </li>
           <li>
             <button type="button" className="nav-link" onClick={toggleMenu}>
-              <a href="">{t("link-to-animations")}</a>
+              <Link href="/animations">{t("link-to-animations")}</Link>
             </button>
           </li>
           <li>
@@ -51,9 +52,9 @@ function Navbar() {
               className="nav-link connexion-none"
               onClick={toggleMenu}
             >
-              <a className="nav-link connexion-none" href="">
+              <Link className="nav-link connexion-none" href="/profile">
                 {t("profile")}
-              </a>
+              </Link>
             </button>
           </li>
           <li>
@@ -107,9 +108,9 @@ function Navbar() {
           ) : (
             ""
           )}
-          <a className="profile" href="">
+          <Link className="profile" href="/profile">
             {t("profile")}
-          </a>
+          </Link>
           <button type="button" className="connexion">
             <a href={logoutUrl()}>{t("logout")}</a>
           </button>
