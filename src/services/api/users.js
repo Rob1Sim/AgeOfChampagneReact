@@ -1,4 +1,5 @@
-export const BASE_URL = "http://127.0.0.1:8000/api";
+export const BASE_URL = "https://127.0.0.1:8000/api";
+export const BASE_URL_WITHOUT_API = "http://localhost:8000";
 export function getMe() {
   return fetch(`${BASE_URL}/me`, { credentials: "include" }).then(
     (response) => {
@@ -11,9 +12,13 @@ export function getMe() {
 }
 
 export function loginUrl() {
-  return `${BASE_URL}/login?redirect=${window.location}`;
+  return `${BASE_URL_WITHOUT_API}/login`;
 }
 
 export function logoutUrl() {
-  return `${BASE_URL}/logout`;
+  return `${BASE_URL_WITHOUT_API}/logout`;
+}
+
+export function loginToAdminPanel() {
+  return `${BASE_URL_WITHOUT_API}/admin`;
 }
