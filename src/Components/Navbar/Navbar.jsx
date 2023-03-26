@@ -1,45 +1,49 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useContext, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { Link } from "wouter";
 import logo from "../../images/favicon/favicon-32x32.png";
-import franceFlag from "../../images/flags/france.png";
 import "./Navbar.scss";
 import UserContext from "../../contexts/user/index";
-import {logoutUrl} from "../../services/api/users.js";
+import {
+  loginToAdminPanel,
+  loginUrl,
+  logoutUrl,
+} from "../../services/api/users";
+import Language from "./Language/Language";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const userContext = useContext(UserContext);
+  const { userData } = useContext(UserContext);
+  const { t } = useTranslation("navbar");
   const toggleMenu = () => {
     if (window.screen.width < 767) {
       setIsOpen(!isOpen);
     }
   };
-
-  const [language, setLanguage] = useState("fr");
-
-  const handleChange = (event) => {
-    setLanguage(event.target.value);
-  };
-
+  if (userData !== null && userData !== undefined) {
+    // TODO: Rediriger sur la page de connexion
+  }
   return (
     <nav>
       <div className="start">
-        <a href="#" aria-label="Liens vers l'accueil">
+        <Link href="/cartes" aria-label="Liens vers l'accueil">
           <img src={logo} alt="Logo" />
-        </a>
+        </Link>
         <ul className={`nav-ul ${isOpen ? "show-nav" : "dont-show"} `}>
           <li>
             <button type="button" className="nav-link" onClick={toggleMenu}>
-              <a href="">Les cartes</a>
+              <Link href="/cartes">{t("link-to-cards")}</Link>
             </button>
           </li>
           <li>
             <button type="button" className="nav-link" onClick={toggleMenu}>
-              <a href="">Les vignerons partenaires</a>
+              <Link href="/partenaires">{t("link-to-partners")}</Link>
             </button>
           </li>
           <li>
             <button type="button" className="nav-link" onClick={toggleMenu}>
-              <a href="">Les animations</a>
+              <Link href="/animations">{t("link-to-animations")}</Link>
             </button>
           </li>
           <li>
@@ -48,17 +52,21 @@ function Navbar() {
               className="nav-link connexion-none"
               onClick={toggleMenu}
             >
-              <a href="">Mon profil</a>
+              <Link className="nav-link connexion-none" href="/profile">
+                {t("profile")}
+              </Link>
             </button>
           </li>
           <li>
-            {userContext !== null ? (
+            {userData !== null && userData !== undefined ? (
               <button
                 type="button"
                 className="nav-link connexion-none"
                 onClick={toggleMenu}
               >
-                <a href={logoutUrl()}>Déconnexion</a>
+                <a className="nav-link connexion-none" href={logoutUrl()}>
+                  {t("logout")}
+                </a>
               </button>
             ) : (
               <button
@@ -66,7 +74,9 @@ function Navbar() {
                 className="nav-link connexion-none"
                 onClick={toggleMenu}
               >
-                <a href="">Connexion</a>
+                <a className="nav-link connexion-none" href={loginUrl()}>
+                  {t("login")}
+                </a>
               </button>
             )}
           </li>
@@ -88,19 +98,32 @@ function Navbar() {
       >
         <span className="burger_bar" />
       </button>
-      <div className="end">
-        <a href="" className="connexion" onClick={toggleMenu}>
-          Mon profil
-        </a>
-        <a href="" className="connexion" onClick={toggleMenu}>
-          Déconnexion
-        </a>
-        <img
-          className="btn-img"
-          src={franceFlag}
-          alt="Drapeau du pays sélectionné"
-        />
-      </div>
+
+      {userData !== null && userData !== undefined ? (
+        <div className="end">
+          {userData.roles.includes("ROLE_ADMIN") ? (
+            <a href={loginToAdminPanel()} className="profile">
+              {t("AdminPanel")}
+            </a>
+          ) : (
+            ""
+          )}
+          <Link className="profile" href="/profile">
+            {t("profile")}
+          </Link>
+          <button type="button" className="connexion">
+            <a href={logoutUrl()}>{t("logout")}</a>
+          </button>
+          <Language />
+        </div>
+      ) : (
+        <div className="end">
+          <button type="button" className="connexion">
+            <a href={loginUrl()}>{t("login")}</a>
+          </button>
+          <Language />
+        </div>
+      )}
     </nav>
   );
 }
