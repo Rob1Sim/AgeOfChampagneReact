@@ -1,5 +1,5 @@
 export const BASE_URL = "https://127.0.0.1:8000/api";
-export const BASE_URL_WITHOUT_API = "http://localhost:8000";
+export const BASE_URL_WITHOUT_API = "https://localhost:8000";
 export function getMe() {
   return fetch(`${BASE_URL}/me`, { credentials: "include" }).then(
     (response) => {
