@@ -35,10 +35,8 @@ export function fetchCruFromCard(cruLink) {
 /**
  * Récupère l'image d'une carte
  * @param cardId
- * @returns {Promise<Response>}
+ * @returns {string}
  */
 export function getCardImage(cardId) {
-  return fetch(`${BASE_URL}/cartes/${cardId}/image`, {
-    credentials: "include",
-  });
+  return `${BASE_URL}/cartes/${cardId}/image`;
 }
