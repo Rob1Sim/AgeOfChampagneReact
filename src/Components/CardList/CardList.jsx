@@ -17,7 +17,6 @@ export function CardList() {
 
 
   function handleClick(card) {
-    console.log("Card clicked:", card);
     const lastClickedCard = JSON.parse(window.sessionStorage.getItem("lastClickedCards") || "[]");
     const cardIndex = lastClickedCard.indexOf(card.id);
     if (cardIndex !== -1) {
