@@ -1,14 +1,25 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { useLocation } from "wouter";
 import { cardImgUrl } from "../../services/api/cards";
 
-export function CardItem({ data, onClick }) {
+function CardItem({ data, onClick }) {
+  const [, setLocation] = useLocation();
   return (
     <div>
-      <img src={cardImgUrl(data.id)} alt={data.nom} onClick={() => onClick(data)} />
+      <button
+        type="button"
+        onClick={() => {
+          onClick(data);
+          setLocation(`cartes/${data.id}`);
+        }}
+      >
+        <img src={cardImgUrl(data.id)} alt={data.nom} />
+      </button>
     </div>
   );
 }
+export default CardItem;
 
 CardItem.propTypes = {
   // eslint-disable-next-line react/require-default-props
@@ -23,4 +34,5 @@ CardItem.propTypes = {
     contenuImage: PropTypes.string,
     cru_r: PropTypes.string,
   }),
+  onClick: PropTypes.func.isRequired,
 };
