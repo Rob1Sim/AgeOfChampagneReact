@@ -3,8 +3,14 @@ import React from "react";
 import { Redirect, Route, Switch } from "wouter";
 import Navbar from "../Navbar/Navbar";
 import Provider from "../../contexts/user/Provider";
+import { getMe, loginUrl } from "../../services/api/users";
 
 function App() {
+  getMe().then((data) => {
+    if (data === null) {
+      window.location.href = loginUrl();
+    }
+  });
   return (
     <Provider>
       <div className="App">
