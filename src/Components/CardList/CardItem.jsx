@@ -1,10 +1,10 @@
 import PropTypes from "prop-types";
 import { cardImgUrl } from "../../services/api/cards";
 
-export function CardItem({ data }) {
+export function CardItem({ data, onClick }) {
   return (
     <div>
-      <img src={cardImgUrl(data.id)} alt={data.nom} />
+      <img src={cardImgUrl(data.id)} alt={data.nom} onClick={() => onClick(data)} />
     </div>
   );
 }
