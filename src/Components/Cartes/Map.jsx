@@ -1,15 +1,19 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
+import PropTypes from "prop-types";
 import Loading from "../Loading";
 
 function Map({ lat, long }) {
-  const defaultProps = {
-    center: {
-      lat,
-      lng: long,
-    },
-    zoom: 11,
-  };
+  const defaultProps = useMemo(
+    () => ({
+      center: {
+        lat,
+        lng: long,
+      },
+      zoom: 11,
+    }),
+    []
+  );
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: "AIzaSyBREaPD6P-jnYJJ-l6SmI1Wu97mDbSPy8s",
   });
@@ -19,8 +23,15 @@ function Map({ lat, long }) {
       zoom={defaultProps.zoom}
       center={defaultProps.center}
       mapContainerClassName="mapContainer"
-    />
+    >
+      <Marker position={defaultProps.center} />
+    </GoogleMap>
   );
 }
+
+Map.prototype = {
+  lat: PropTypes.number.isRequired,
+  long: PropTypes.number.isRequired,
+};
 
 export default Map;
