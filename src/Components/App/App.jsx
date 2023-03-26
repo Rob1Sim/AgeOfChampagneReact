@@ -3,6 +3,7 @@ import React from "react";
 import { Redirect, Route, Switch } from "wouter";
 import Navbar from "../Navbar/Navbar";
 import Provider from "../../contexts/user/Provider";
+import { CardList } from "../CardList/CardList";
 import Card from "../Cartes/Card";
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
             <Redirect to="/cartes" />
           </Route>
           <Route path="/cartes">
-            <h1>Pages des cartes</h1>
+            <CardList />
           </Route>
           <Route path="/cartes/:cardId">
             <Card />
