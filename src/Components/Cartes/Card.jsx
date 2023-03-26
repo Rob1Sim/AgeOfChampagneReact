@@ -7,6 +7,7 @@ import {
   getCardImage,
 } from "../../services/api/card";
 import Loading from "../Loading";
+import Map from "./Map";
 
 function Card() {
   const [, { cardId }] = useRoute("/cartes/:cardId");
@@ -44,6 +45,7 @@ function Card() {
           {card.nom}
           {card.type}
           {card.region}
+          <Map lat={10} long={10} />
           {cru === undefined ? (
             <p>Pas de cru pour cette carte</p>
           ) : (
