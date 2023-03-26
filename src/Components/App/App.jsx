@@ -4,6 +4,7 @@ import { Redirect, Route, Switch } from "wouter";
 import Navbar from "../Navbar/Navbar";
 import Provider from "../../contexts/user/Provider";
 import { CardList } from "../CardList/CardList";
+import Card from "../Cartes/Card";
 
 function App() {
   return (
@@ -15,7 +16,10 @@ function App() {
             <Redirect to="/cartes" />
           </Route>
           <Route path="/cartes">
-            <CardList/>
+            <CardList />
+          </Route>
+          <Route path="/cartes/:cardId">
+            <Card />
           </Route>
           <Route path="/animations">
             <h1>Les animations</h1>
