@@ -46,7 +46,7 @@ function Card() {
           {card.nom}
           {card.type}
           {card.region}
-          <Map lat={10} long={10} />
+          <Map lat={card.latitude} long={card.longitude} />
           {cru === undefined ? (
             <p>Pas de cru pour cette carte</p>
           ) : (
