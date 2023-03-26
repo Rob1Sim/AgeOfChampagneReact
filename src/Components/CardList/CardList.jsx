@@ -23,4 +23,15 @@ export function CardList() {
     }
     window.sessionStorage.setItem("lastClickedCards", JSON.stringify(lastClickedCard));
   }
+
+  const lastClickedCards = JSON.parse(window.sessionStorage.getItem("lastClickedCards") || "[]")
+
+  // eslint-disable-next-line react/react-in-jsx-scope
+  return <>
+  Liste des 10 dernières cartes : 
+  {lastClickedCards.map((card) => (
+    <div key={card.id}>{card.name}</div>
+  ))}
+  Toutes les cartes :
+  {cardList}</>
 }
