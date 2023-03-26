@@ -1,5 +1,4 @@
-export const BASE_URL = "https://127.0.0.1:8000/api";
-
+import { BASE_URL } from "./users";
 export function fetchAllCards() {
   return fetch(`${BASE_URL}/cartes`).then((response) => response.json());
 }

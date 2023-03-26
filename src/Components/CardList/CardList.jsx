@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { React, useState, useEffect } from "react";
 import { fetchAllCards } from "../../services/api/cards";
 import { CardItem } from "./CardItem";
 
@@ -9,15 +9,22 @@ export function CardList() {
   useEffect(() => {
     fetchAllCards().then((data) => {
       setCardData(data["hydra:member"]);
-      setCardList(data["hydra:member"].map((card) =>
-      <CardItem key={card.id} data={card} onClick={() => handleClick(card)} />
-      ));
+      setCardList(
+        data["hydra:member"].map((card) => (
+          <CardItem
+            key={card.id}
+            data={card}
+            onClick={() => handleClick(card)}
+          />
+        ))
+      );
     });
   }, []);
 
-
   function handleClick(card) {
-    const lastClickedCard = JSON.parse(window.sessionStorage.getItem("lastClickedCards") || "[]");
+    const lastClickedCard = JSON.parse(
+      window.sessionStorage.getItem("lastClickedCards") || "[]"
+    );
     const cardIndex = lastClickedCard.indexOf(card.id);
     if (cardIndex !== -1) {
       // Remove the card from its current position and add it at the beginning
@@ -29,10 +36,14 @@ export function CardList() {
         lastClickedCard.pop();
       }
     }
-    window.sessionStorage.setItem("lastClickedCards", JSON.stringify(lastClickedCard));
+    window.sessionStorage.setItem(
+      "lastClickedCards",
+      JSON.stringify(lastClickedCard)
+    );
   }
 
-  const lastClickedCardsJson = window.sessionStorage.getItem("lastClickedCards");
+  const lastClickedCardsJson =
+    window.sessionStorage.getItem("lastClickedCards");
   let lastClickedCards = [];
 
   if (lastClickedCardsJson) {
@@ -45,15 +56,18 @@ export function CardList() {
 
   return (
     <>
-      Liste des 10 dernières cartes : 
+      Liste des 10 dernières cartes :
       {lastClickedCards.map((cardId) => {
-        const card = cardData.find(c => c.id === cardId);
-        return card ? 
-          <CardItem key={card.id} data={card} onClick={() => handleClick(card)} /> :
-          null;
+        const card = cardData.find((c) => c.id === cardId);
+        return card ? (
+          <CardItem
+            key={card.id}
+            data={card}
+            onClick={() => handleClick(card)}
+          />
+        ) : null;
       })}
-      Toutes les cartes :
-      {cardList}
+      Toutes les cartes :{cardList}
     </>
   );
 }

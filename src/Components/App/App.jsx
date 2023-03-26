@@ -15,7 +15,7 @@ function App() {
             <Redirect to="/cartes" />
           </Route>
           <Route path="/cartes">
-            <h1>Pages des cartes</h1>
+            <CardList/>
           </Route>
           <Route path="/animations">
             <h1>Les animations</h1>
