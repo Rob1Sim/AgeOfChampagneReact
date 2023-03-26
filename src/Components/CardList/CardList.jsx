@@ -15,6 +15,12 @@ export function CardList() {
     });
   }, []);
 
-  // eslint-disable-next-line react/react-in-jsx-scope
-  return <>{cardList}</>
+  const handleClick = (card) => {
+    const lastClickedCard = JSON.parse(window.sessionStorage.getItem("lastClickedCards") || "[]");
+    lastClickedCard.push(card);
+    if (lastClickedCard.length > 10){
+      lastClickedCard.shift();
+    }
+    window.sessionStorage.setItem("lastClickedCards", JSON.stringify(lastClickedCard));
+  }
 }
