@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from "react";
 import { fetchAllCards } from "../../services/api/cards";
-import { CardItem } from "./CardItem";
+import CardItem from "./CardItem";
 
 function handleClick(card) {
   const lastClickedCard = JSON.parse(
@@ -22,7 +22,7 @@ function handleClick(card) {
     JSON.stringify(lastClickedCard)
   );
 }
-export function CardList() {
+function CardList() {
   const [cardData, setCardData] = useState([]);
   const [cardList, setCardList] = useState([]);
 
@@ -70,3 +70,5 @@ export function CardList() {
     </>
   );
 }
+
+export default CardList;
