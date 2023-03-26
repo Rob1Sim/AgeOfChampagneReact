@@ -8,6 +8,7 @@ import {
 } from "../../services/api/card";
 import Loading from "../Loading";
 import Map from "./Map";
+import "./Card.scss";
 
 function Card() {
   const [, { cardId }] = useRoute("/cartes/:cardId");
