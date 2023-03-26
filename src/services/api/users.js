@@ -1,14 +1,20 @@
 export const BASE_URL = "https://127.0.0.1:8000/api";
 export const BASE_URL_WITHOUT_API = "http://localhost:8000";
 export function getMe() {
-  return fetch(`${BASE_URL}/me`, { credentials: "include" }).then(
-    (response) => {
+  return fetch(`${BASE_URL}/me`, { credentials: "include" })
+    .then((response) => {
       if (response.status === 401) {
         return Promise.resolve(null);
       }
-      return response.json();
-    }
-  );
+      return response.text();
+    })
+    .then((data) => {
+      try {
+        return JSON.parse(data.toString());
+      } catch (error) {
+        return Promise.resolve(null);
+      }
+    });
 }
 
 export function loginUrl() {
