@@ -42,7 +42,9 @@ export function CardList() {
       Liste des 10 dernières cartes : 
       {lastClickedCards.map((cardId) => {
         const card = cardData.find(c => c.id === cardId);
-        return card ? <div className="lastCards" key={card.id}>{card.nom}</div> : null;
+        return card ? 
+          <CardItem key={card.id} data={card} onClick={() => handleClick(card)} /> :
+          null;
       })}
       Toutes les cartes :
       {cardList}
