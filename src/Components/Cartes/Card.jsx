@@ -4,8 +4,8 @@ import { useTranslation } from "react-i18next";
 import {
   fetchCard,
   fetchCruFromCard,
-  getCardImage,
-} from "../../services/api/card";
+  cardImgUrl,
+} from "../../services/api/cards";
 import Loading from "../Loading";
 import Map from "./Map";
 import "./Card.scss";
@@ -42,7 +42,7 @@ function Card() {
         <Loading />
       ) : (
         <div>
-          <img src={getCardImage(cardId)} alt={t("alt-card")} />
+          <img src={cardImgUrl(cardId)} alt={t("alt-card")} />
           {card.nom}
           {card.type}
           {card.region}
