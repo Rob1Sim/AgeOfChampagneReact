@@ -76,7 +76,8 @@ function CardList() {
               />
             ) : null;
           })}
-        
+        <h2>Toutes les cartes : </h2>
+        {cardList}
         </>
       )}
     </>
