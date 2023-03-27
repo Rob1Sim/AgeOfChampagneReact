@@ -7,20 +7,30 @@ function CardList() {
   const [cardData, setCardData] = useState([]);
   const [cardList, setCardList] = useState([]);
   const [searchParams, setSearchParams] = useState("");
+  const [isDataAvailable, setIsDataAvailable] = useState(true);
 
   useEffect(() => {
-    fetchAllCards(searchParams).then((data) => {
-      setCardData(data["hydra:member"]);
-      setCardList(
-        data["hydra:member"].map((card) => (
-          <CardItem
-            key={card.id}
-            data={card}
-            onClick={() => handleClick(card)}
-          />
-        ))
-      );
-    });
+    setIsDataAvailable(true); // reset the state
+    fetchAllCards(searchParams)
+      .then((data) => {
+        if (data["hydra:member"].length > 0) {
+          setCardData(data["hydra:member"]);
+          setCardList(
+            data["hydra:member"].map((card) => (
+              <CardItem
+                key={card.id}
+                data={card}
+                onClick={() => handleClick(card)}
+              />
+            ))
+          );
+        } else {
+          setIsDataAvailable(false);
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching cards:", error);
+      });
   }, [searchParams]);
 
   const lastClickedCardsJson = window.sessionStorage.getItem("lastClickedCards");
@@ -48,9 +58,14 @@ function CardList() {
         <label>Recherche :</label>
         <input type="text" value={searchParams} onChange={handleSearchInputChange} />
       </form>
-
-      {searchParams ? (<>
-          Liste des 10 dernières cartes :
+  
+      {searchParams ? (
+        <>
+          {cardData.length > 0 ? cardList : <p>Aucune carte n'a été trouvée.</p>}
+        </>
+      ) : (
+        <>
+          <h2>Liste des 10 dernières cartes :</h2>
           {lastClickedCards.map((cardId) => {
             const card = cardData.find((c) => c.id === cardId);
             return card ? (
@@ -61,10 +76,9 @@ function CardList() {
               />
             ) : null;
           })}
+        
         </>
-      )
-      : (cardList)
-        }
+      )}
     </>
   );
 }
