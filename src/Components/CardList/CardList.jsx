@@ -10,7 +10,7 @@ function CardList() {
   const [isDataAvailable, setIsDataAvailable] = useState(true);
 
   useEffect(() => {
-    setIsDataAvailable(true); // reset the state
+    setIsDataAvailable(true);
     fetchAllCards(searchParams)
       .then((data) => {
         if (data["hydra:member"].length > 0) {
@@ -59,11 +59,16 @@ function CardList() {
         <input type="text" value={searchParams} onChange={handleSearchInputChange} />
       </form>
   
-      {searchParams ? (
+      {searchParams ? 
+      // Si il y a des paramètres de recherche : 
+      (
         <>
           {cardData.length > 0 ? cardList : <p>Aucune carte n'a été trouvée.</p>}
         </>
-      ) : (
+      ) : 
+      // Si les paramètres de recherche sont vides :
+      (
+        // Affiche les 10 dernières cartes visitées + la liste normale de cartes
         <>
           <h2>Liste des 10 dernières cartes :</h2>
           {lastClickedCards.map((cardId) => {
