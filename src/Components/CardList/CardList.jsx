@@ -68,7 +68,7 @@ function CardList() {
       ) : (
         // Affiche les dix dernières cartes visitées
         <>
-          <h2>Liste des 10 dernières cartes :</h2>
+          <h2>Cartes récemment visitées :</h2>
           {lastClickedCards.map((cardId) => {
             const card = cardData.find((c) => c.id === cardId);
             return card ? (
@@ -79,8 +79,7 @@ function CardList() {
               />
             ) : null;
           })}
-          <h2>Toutes les cartes :</h2>
-          {cardList}
+          <h2>Liste des cartes :</h2> {cardList}
         </>
       )}
     </>
