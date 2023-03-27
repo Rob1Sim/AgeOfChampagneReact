@@ -6,6 +6,7 @@ import { handleClick } from "../../hooks/cards/cards";
 function CardList() {
   const [cardData, setCardData] = useState([]);
   const [cardList, setCardList] = useState([]);
+  const [searchParams, setSearchParams] = useState("");
 
   useEffect(() => {
     fetchAllCards().then((data) => {
