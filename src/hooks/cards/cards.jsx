@@ -18,3 +18,7 @@ export function handleClick(card) {
       JSON.stringify(lastClickedCard)
     );
   }
+
+export function handleSearchInputChange(event) {
+    setSearchTerm(event.target.value);
+  }
