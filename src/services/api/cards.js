@@ -1,7 +1,11 @@
 import { BASE_URL, BASE_URL_WITHOUT_API } from "./users";
 
-export function fetchAllCards() {
-  return fetch(`${BASE_URL}/cartes`).then((response) => response.json());
+export function fetchAllCards(search) {
+  let url = `${BASE_URL}/cartes`;
+  if (search) {
+    url += `?nom=${search}`;
+  }
+  return fetch(url).then((response) => response.json());
 }
 
 export function cardImgUrl(cardId) {
