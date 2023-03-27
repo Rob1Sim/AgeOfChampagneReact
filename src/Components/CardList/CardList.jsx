@@ -42,15 +42,11 @@ function CardList() {
     } catch (e) {
       console.error("Invalid JSON in session storage:", lastClickedCardsJson);
     }
-  } else {
-    console.log("No data in session storage");
   }
-
+  
   function handleSearchInputChange(event) {
     setSearchParams(event.target.value);
   }
-
-  console.log(lastClickedCardsJson)
 
   return (
     <>
