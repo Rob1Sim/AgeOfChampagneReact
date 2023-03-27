@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from "react";
 import { fetchAllCards } from "../../services/api/cards";
 import CardItem from "./CardItem";
-import { handleClick } from "../../hooks/cards/cards";
+import { handleClick } from "../../hooks/cards/cardsClick";
 
 function CardList() {
   const [cardData, setCardData] = useState([]);
@@ -11,8 +11,10 @@ function CardList() {
 
   useEffect(() => {
     setIsDataAvailable(true);
+    // Fetch toutes les cartes
     fetchAllCards(searchParams)
       .then((data) => {
+        // Si le fetch retourne quelque chose, crée un composant CardItem
         if (data["hydra:member"].length > 0) {
           setCardData(data["hydra:member"]);
           setCardList(
@@ -24,6 +26,7 @@ function CardList() {
               />
             ))
           );
+        // Si le fetch ne retourne rien, isDataAvailable vaut false
         } else {
           setIsDataAvailable(false);
         }
@@ -36,6 +39,7 @@ function CardList() {
   const lastClickedCardsJson = window.sessionStorage.getItem("lastClickedCards");
   let lastClickedCards = [];
 
+  // Si les données de session sont présentes, essaie de faire un parse
   if (lastClickedCardsJson) {
     try {
       lastClickedCards = JSON.parse(lastClickedCardsJson);
@@ -43,7 +47,7 @@ function CardList() {
       console.error("Invalid JSON in session storage:", lastClickedCardsJson);
     }
   }
-  
+
   function handleSearchInputChange(event) {
     setSearchParams(event.target.value);
   }
