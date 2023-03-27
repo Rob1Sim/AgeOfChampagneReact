@@ -48,7 +48,7 @@ function CardList() {
     }
   }
 
-  function handleSearchInputChange(event) {
+  const handleSearchInputChange = (event) => {
     setSearchParams(event.target.value);
   }
 
@@ -58,17 +58,15 @@ function CardList() {
         <label>Recherche :</label>
         <input type="text" value={searchParams} onChange={handleSearchInputChange} />
       </form>
-  
-      {searchParams ? 
-      // Si il y a des paramètres de recherche : 
-      (
+
+      {searchParams ? (
+        // Si il y a du contenu dans le formulaire de recherche :
+        // Affiche liste des cartes ou rien si aucune carte n'est trouvée
         <>
           {cardData.length > 0 ? cardList : <p>Aucune carte n'a été trouvée.</p>}
         </>
-      ) : 
-      // Si les paramètres de recherche sont vides :
-      (
-        // Affiche les 10 dernières cartes visitées + la liste normale de cartes
+      ) : (
+        // Affiche les dix dernières cartes visitées
         <>
           <h2>Liste des 10 dernières cartes :</h2>
           {lastClickedCards.map((cardId) => {
@@ -81,8 +79,8 @@ function CardList() {
               />
             ) : null;
           })}
-        <h2>Toutes les cartes : </h2>
-        {cardList}
+          <h2>Toutes les cartes :</h2>
+          {cardList}
         </>
       )}
     </>
