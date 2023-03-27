@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from "react";
 import { fetchAllCards } from "../../services/api/cards";
 import CardItem from "./CardItem";
-import { handleClick, handleSearchInputChange } from "../../hooks/cards/cards";
+import { handleClick } from "../../hooks/cards/cards";
 
 function CardList() {
   const [cardData, setCardData] = useState([]);
@@ -35,8 +35,22 @@ function CardList() {
     }
   }
 
+  function handleSearchInputChange(event) {
+    setSearchParams(event.target.value);
+  }
+
   return (
     <>
+      <form>
+        <label htmlFor="searchInput">Recherche :</label>
+        <input
+          type="text"
+          id="searchInput"
+          value={searchParams}
+          onChange={handleSearchInputChange}
+        />
+      </form>
+
       Liste des 10 dernières cartes :
       {lastClickedCards.map((cardId) => {
         const card = cardData.find((c) => c.id === cardId);
