@@ -2,12 +2,14 @@ import { React, useState, useEffect } from "react";
 import { fetchAllCards } from "../../services/api/cards";
 import CardItem from "./CardItem";
 import { handleClick } from "../../hooks/cards/cardsClick";
+import { useTranslation } from "react-i18next";
 
 function CardList() {
   const [cardData, setCardData] = useState([]);
   const [cardList, setCardList] = useState([]);
   const [searchParams, setSearchParams] = useState("");
   const [isDataAvailable, setIsDataAvailable] = useState(true);
+  const { t } = useTranslation("cardlist");
 
   useEffect(() => {
     setIsDataAvailable(true);
@@ -55,7 +57,7 @@ function CardList() {
   return (
     <>
       <form>
-        <label>Recherche :</label>
+        <label>{t("card-search")}</label>
         <input type="text" value={searchParams} onChange={handleSearchInputChange} />
       </form>
 
@@ -68,7 +70,7 @@ function CardList() {
       ) : (
         // Affiche les dix dernières cartes visitées
         <>
-          <h2>Cartes récemment visitées :</h2>
+          <h2>{t("recent-card")}</h2>
           {lastClickedCards.map((cardId) => {
             const card = cardData.find((c) => c.id === cardId);
             return card ? (
@@ -79,7 +81,7 @@ function CardList() {
               />
             ) : null;
           })}
-          <h2>Liste des cartes :</h2> {cardList}
+          <h2>{t("list-card")}</h2> {cardList}
         </>
       )}
     </>
