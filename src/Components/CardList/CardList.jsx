@@ -23,8 +23,7 @@ function CardList() {
     });
   }, [searchParams]);
 
-  const lastClickedCardsJson =
-    window.sessionStorage.getItem("lastClickedCards");
+  const lastClickedCardsJson = window.sessionStorage.getItem("lastClickedCards");
   let lastClickedCards = [];
 
   if (lastClickedCardsJson) {
@@ -33,36 +32,39 @@ function CardList() {
     } catch (e) {
       console.error("Invalid JSON in session storage:", lastClickedCardsJson);
     }
+  } else {
+    console.log("No data in session storage");
   }
 
   function handleSearchInputChange(event) {
     setSearchParams(event.target.value);
   }
 
+  console.log(lastClickedCardsJson)
+
   return (
     <>
       <form>
-        <label htmlFor="searchInput">Recherche :</label>
-        <input
-          type="text"
-          id="searchInput"
-          value={searchParams}
-          onChange={handleSearchInputChange}
-        />
+        <label>Recherche :</label>
+        <input type="text" value={searchParams} onChange={handleSearchInputChange} />
       </form>
 
-      Liste des 10 dernières cartes :
-      {lastClickedCards.map((cardId) => {
-        const card = cardData.find((c) => c.id === cardId);
-        return card ? (
-          <CardItem
-            key={card.id}
-            data={card}
-            onClick={() => handleClick(card)}
-          />
-        ) : null;
-      })}
-      Toutes les cartes :{cardList}
+      {searchParams ? (<>
+          Liste des 10 dernières cartes :
+          {lastClickedCards.map((cardId) => {
+            const card = cardData.find((c) => c.id === cardId);
+            return card ? (
+              <CardItem
+                key={card.id}
+                data={card}
+                onClick={() => handleClick(card)}
+              />
+            ) : null;
+          })}
+        </>
+      )
+      : (cardList)
+        }
     </>
   );
 }
