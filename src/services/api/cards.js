@@ -1,6 +1,6 @@
 import { BASE_URL, BASE_URL_WITHOUT_API } from "./users";
 
-export function fetchAllCards(search) {
+export function fetchAllCards(search = null) {
   let url = `${BASE_URL}/cartes`;
   if (search) {
     url += `?nom=${search}`;
