@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from "react";
 import { fetchAllCards } from "../../services/api/cards";
 import CardItem from "./CardItem";
-import { handleClick } from "../../hooks/cards/cards";
+import { handleClick, handleSearchInputChange } from "../../hooks/cards/cards";
 
 function CardList() {
   const [cardData, setCardData] = useState([]);
