@@ -9,7 +9,7 @@ function CardList() {
   const [searchParams, setSearchParams] = useState("");
 
   useEffect(() => {
-    fetchAllCards().then((data) => {
+    fetchAllCards(searchParams).then((data) => {
       setCardData(data["hydra:member"]);
       setCardList(
         data["hydra:member"].map((card) => (
@@ -21,7 +21,7 @@ function CardList() {
         ))
       );
     });
-  }, []);
+  }, [searchParams]);
 
   const lastClickedCardsJson =
     window.sessionStorage.getItem("lastClickedCards");
