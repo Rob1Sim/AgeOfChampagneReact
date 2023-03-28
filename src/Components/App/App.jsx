@@ -3,7 +3,7 @@ import React from "react";
 import { Redirect, Route, Switch } from "wouter";
 import Navbar from "../Navbar/Navbar";
 import Provider from "../../contexts/user/Provider";
-import { CardList } from "../CardList/CardList";
+import CardList from "../CardList/CardList";
 import Card from "../Cartes/Card";
 
 function App() {

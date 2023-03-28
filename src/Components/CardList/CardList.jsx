@@ -1,50 +1,47 @@
 import { React, useState, useEffect } from "react";
 import { fetchAllCards } from "../../services/api/cards";
 import CardItem from "./CardItem";
+import { handleClick } from "../../hooks/cards/cardsClick";
+import { useTranslation } from "react-i18next";
 
-function handleClick(card) {
-  const lastClickedCard = JSON.parse(
-    window.sessionStorage.getItem("lastClickedCards") || "[]"
-  );
-  const cardIndex = lastClickedCard.indexOf(card.id);
-  if (cardIndex !== -1) {
-    // Remove the card from its current position and add it at the beginning
-    lastClickedCard.splice(cardIndex, 1);
-    lastClickedCard.unshift(card.id);
-  } else {
-    lastClickedCard.unshift(card.id);
-    if (lastClickedCard.length > 10) {
-      lastClickedCard.pop();
-    }
-  }
-  window.sessionStorage.setItem(
-    "lastClickedCards",
-    JSON.stringify(lastClickedCard)
-  );
-}
 function CardList() {
   const [cardData, setCardData] = useState([]);
   const [cardList, setCardList] = useState([]);
+  const [searchParams, setSearchParams] = useState("");
+  const [isDataAvailable, setIsDataAvailable] = useState(true);
+  const { t } = useTranslation("cardlist");
 
   useEffect(() => {
-    fetchAllCards().then((data) => {
-      setCardData(data["hydra:member"]);
-      setCardList(
-        data["hydra:member"].map((card) => (
-          <CardItem
-            key={card.id}
-            data={card}
-            onClick={() => handleClick(card)}
-          />
-        ))
-      );
-    });
-  }, []);
+    setIsDataAvailable(true);
+    // Fetch toutes les cartes
+    fetchAllCards(searchParams)
+      .then((data) => {
+        // Si le fetch retourne quelque chose, crée un composant CardItem
+        if (data["hydra:member"].length > 0) {
+          setCardData(data["hydra:member"]);
+          setCardList(
+            data["hydra:member"].map((card) => (
+              <CardItem
+                key={card.id}
+                data={card}
+                onClick={() => handleClick(card)}
+              />
+            ))
+          );
+        // Si le fetch ne retourne rien, isDataAvailable vaut false
+        } else {
+          setIsDataAvailable(false);
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching cards:", error);
+      });
+  }, [searchParams]);
 
-  const lastClickedCardsJson =
-    window.sessionStorage.getItem("lastClickedCards");
+  const lastClickedCardsJson = window.sessionStorage.getItem("lastClickedCards");
   let lastClickedCards = [];
 
+  // Si les données de session sont présentes, essaie de faire un parse
   if (lastClickedCardsJson) {
     try {
       lastClickedCards = JSON.parse(lastClickedCardsJson);
@@ -53,20 +50,40 @@ function CardList() {
     }
   }
 
+  const handleSearchInputChange = (event) => {
+    setSearchParams(event.target.value);
+  }
+
   return (
     <>
-      Liste des 10 dernières cartes :
-      {lastClickedCards.map((cardId) => {
-        const card = cardData.find((c) => c.id === cardId);
-        return card ? (
-          <CardItem
-            key={card.id}
-            data={card}
-            onClick={() => handleClick(card)}
-          />
-        ) : null;
-      })}
-      Toutes les cartes :{cardList}
+      <form>
+        <label>{t("card-search")}</label>
+        <input type="text" value={searchParams} onChange={handleSearchInputChange} />
+      </form>
+
+      {searchParams ? (
+        // Si il y a du contenu dans le formulaire de recherche :
+        // Affiche liste des cartes ou rien si aucune carte n'est trouvée
+        <>
+          {cardData.length > 0 ? cardList : <p>Aucune carte n'a été trouvée.</p>}
+        </>
+      ) : (
+        // Affiche les dix dernières cartes visitées
+        <>
+          <h2>{t("recent-card")}</h2>
+          {lastClickedCards.map((cardId) => {
+            const card = cardData.find((c) => c.id === cardId);
+            return card ? (
+              <CardItem
+                key={card.id}
+                data={card}
+                onClick={() => handleClick(card)}
+              />
+            ) : null;
+          })}
+          <h2>{t("list-card")}</h2> {cardList}
+        </>
+      )}
     </>
   );
 }

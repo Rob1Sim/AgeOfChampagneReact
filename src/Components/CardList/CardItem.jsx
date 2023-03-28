@@ -15,6 +15,7 @@ function CardItem({ data, onClick }) {
         }}
       >
         <img src={cardImgUrl(data.id)} alt={data.nom} />
+        <p>{data.nom}</p>
       </button>
     </div>
   );
