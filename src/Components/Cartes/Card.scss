@@ -96,3 +96,13 @@ section>h3{
   }
 }
 
+@media screen and (min-width:1000px){
+  main{
+    padding-top: 5%;
+  }
+  section>img{
+    width: 15%;
+    height: 70%;
+
+  }
+}
