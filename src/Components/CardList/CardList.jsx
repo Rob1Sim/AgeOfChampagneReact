@@ -3,6 +3,7 @@ import { fetchAllCards } from "../../services/api/cards";
 import CardItem from "./CardItem";
 import { handleClick } from "../../hooks/cards/cardsClick";
 import { useTranslation } from "react-i18next";
+import "./CardList.scss";
 
 function CardList() {
   const [cardData, setCardData] = useState([]);
@@ -55,7 +56,7 @@ function CardList() {
   }
 
   return (
-    <>
+    <div className="CardList">
       <form>
         <label>{t("card-search")}</label>
         <input type="text" value={searchParams} onChange={handleSearchInputChange} />
@@ -84,7 +85,7 @@ function CardList() {
           <h2>{t("list-card")}</h2> {cardList}
         </>
       )}
-    </>
+    </div>
   );
 }
 
