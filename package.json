@@ -9,11 +9,17 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-google-maps/api": "^2.18.1",
+    "google-map-react": "^2.2.0",
+    "i18next": "^22.4.13",
+    "i18next-browser-languagedetector": "^7.0.1",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-i18next": "^12.2.0",
     "sass": "^1.58.3",
-    "scss": "^0.2.4"
+    "scss": "^0.2.4",
+    "wouter": "^2.10.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.27",

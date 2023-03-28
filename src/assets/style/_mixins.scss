@@ -15,3 +15,21 @@
   background-color: $dark-brown;
   outline-offset: -2px;
 }
+
+@mixin dark-green-border{
+  border-radius: $border-radius;
+  border: 5px solid $dark-green;
+}
+
+@mixin link{
+  color: black;
+  text-decoration: none;
+  font-family: gotham, sans-serif;
+  transition: color 0.3s;
+
+}
+
+@mixin link-hover{
+  color: $light-green;
+}
+

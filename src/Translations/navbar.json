@@ -1,0 +1,21 @@
+{
+  "fr": {
+    "link-to-cards": "Les cartes",
+    "link-to-partners": "Les vignerons partenaires",
+    "link-to-animations": "Les animations",
+    "login": "Connexion",
+    "logout": "Déconnexion",
+    "profile": "Profil",
+    "AdminPanel": "Panel administrateur"
+  },
+
+  "en": {
+    "link-to-cards": "The cards",
+    "link-to-partners": "Partner winemakers",
+    "link-to-animations": "Animations",
+    "login": "Login",
+    "logout": "Logout",
+    "profile": "Profile",
+    "AdminPanel": "Admin Panel"
+  }
+}
