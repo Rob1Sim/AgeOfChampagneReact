@@ -1,11 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { useLocation } from "wouter";
 import { animationImgUrl } from "../../services/api/animations";
 
-export function AnimationItem({ data }) {
+export function AnimationItem({ data, onClick }) {
+  const [, setLocation] = useLocation();
   return (
     <div>
-      <img src={animationImgUrl(data.id)} alt={data.nom} />
+      <button
+        type="button"
+        onClick={() => {
+          onClick(data);
+          setLocation(`animations/${data.id}`);
+        }}
+      >
+        <p>{data.nom}</p>
+        <img src={animationImgUrl(data.id)} alt={data.nom} />
+      </button>
     </div>
   );
 }
@@ -19,11 +30,12 @@ AnimationItem.propTypes = {
     id: PropTypes.number,
     nom: PropTypes.string,
     type: PropTypes.string,
-    horaireDeb: PropTypes.instanceOf(Date),
-    horaireFin: PropTypes.instanceOf(Date),
+    horaireDeb: PropTypes.string,
+    horaireFin: PropTypes.string,
     prix: PropTypes.number,
     contenuImage: PropTypes.string,
   }),
+  onClick: PropTypes.func.isRequired,
 };
 
 export default AnimationItem;
