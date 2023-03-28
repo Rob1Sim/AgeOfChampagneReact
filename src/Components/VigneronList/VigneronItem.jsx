@@ -1,14 +1,25 @@
 import React from "react";
 import PropTypes from "prop-types";
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { useLocation } from "wouter";
 import { vigneronImgUrl } from "../../services/api/vignerons";
 
-export function VigneronItem({ data }) {
+export function VigneronItem({ data, onClick }) {
+  const [, setLocation] = useLocation();
   return (
     <div>
-      <p>
-        {data.nom} - {data.prenom}
-      </p>
-      <img src={vigneronImgUrl(data.id)} alt={data.nom} />
+      <button
+        type="button"
+        onClick={() => {
+          onClick(data);
+          setLocation(`vignerons/${data.id}`);
+        }}
+      >
+        <p>
+          {data.nom} - {data.prenom}
+        </p>
+        <img src={vigneronImgUrl(data.id)} alt={data.nom} />
+      </button>
     </div>
   );
 }
@@ -27,6 +38,7 @@ VigneronItem.propTypes = {
     ville: PropTypes.string,
     contenuImage: PropTypes.string,
   }),
+  onClick: PropTypes.func.isRequired,
 };
 
 export default VigneronItem;
