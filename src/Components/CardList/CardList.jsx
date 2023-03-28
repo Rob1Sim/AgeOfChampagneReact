@@ -71,7 +71,7 @@ function CardList() {
         </>
       ) : (
         // Affiche les dix dernières cartes visitées
-        <>
+        <div className="all-visited-cards">
           <h2>{t("recent-card")}</h2>
           {lastClickedCards.map((cardId) => {
             const card = cardData.find((c) => c.id === cardId);
@@ -85,7 +85,7 @@ function CardList() {
             ) : null;
           })}
           <h2>{t("list-card")}</h2> {cardList}
-        </>
+        </div>
       )}
     </div>
   );
