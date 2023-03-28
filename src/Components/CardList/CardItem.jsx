@@ -6,17 +6,15 @@ import { cardImgUrl } from "../../services/api/cards";
 function CardItem({ data, onClick }) {
   const [, setLocation] = useLocation();
   return (
-    <div>
-      <button
-        type="button"
+    <div className="all-cards">
+      <button type="button"
         onClick={() => {
           onClick(data);
           setLocation(`cartes/${data.id}`);
         }}
       >
-        <img src={cardImgUrl(data.id)} alt={data.nom} />
-        <p>{data.nom}</p>
-      </button>
+        <img src={cardImgUrl(data.id)} alt={data.nom}/>
+        </button>
     </div>
   );
 }
