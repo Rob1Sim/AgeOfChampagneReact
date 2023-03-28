@@ -4,7 +4,7 @@ import I18nextBrowserLanguageDetector from "i18next-browser-languagedetector";
 import navbar from "./navbar.json";
 import card from "./card.json";
 import loading from "./loading.json";
-import cardlist from "./cardlist.json"
+import cardlist from "./cardList.json";
 
 i18next
   .use(I18nextBrowserLanguageDetector)
