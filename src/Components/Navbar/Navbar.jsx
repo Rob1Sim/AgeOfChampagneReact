@@ -11,14 +11,17 @@ import {
   logoutUrl,
 } from "../../services/api/users";
 import Language from "./Language/Language";
+import BugerButtonContext from "../../contexts/burgerMenu/index";
 
 function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
   const { userData } = useContext(UserContext);
+  const { opened, setOpen } = useContext(BugerButtonContext);
+  const [isOpen, setIsOpen] = useState(opened);
   const { t } = useTranslation("navbar");
   const toggleMenu = () => {
     if (window.screen.width < 767) {
       setIsOpen(!isOpen);
+      setOpen(!isOpen);
     }
   };
   if (userData !== null && userData !== undefined) {

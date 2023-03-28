@@ -1,9 +1,19 @@
 {
   "fr": {
-    "alt-card": "carte du jeu"
+    "alt-card": "carte du jeu",
+    "vintage-name" : "Nom du cru :",
+    "region-name" : "Région du cru :",
+    "vintage-infos" : "Information du cru :",
+    "winemaker" : "Vigneron partenaire :",
+    "alt-winemaker": "Tête du vignerons"
   },
 
   "en": {
-    "alt-card": "card of the game"
+    "alt-card": "card of the game",
+    "vintage-name" : "Name of the vintage :",
+    "region-name" : "Vintage region :",
+    "vintage-infos" : "Vintage information :",
+    "winemaker" : "Winemaker partner :",
+    "alt-winemaker": "Head of the winemaker"
   }
 }
