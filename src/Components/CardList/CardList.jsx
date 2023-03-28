@@ -3,6 +3,7 @@ import { fetchAllCards } from "../../services/api/cards";
 import CardItem from "./CardItem";
 import { handleClick } from "../../hooks/cards/cardsClick";
 import { useTranslation } from "react-i18next";
+import "./CardList.scss";
 
 function CardList() {
   const [cardData, setCardData] = useState([]);
@@ -22,6 +23,7 @@ function CardList() {
           setCardList(
             data["hydra:member"].map((card) => (
               <CardItem
+                className="cards"
                 key={card.id}
                 data={card}
                 onClick={() => handleClick(card)}
@@ -55,7 +57,7 @@ function CardList() {
   }
 
   return (
-    <>
+    <div className="CardList">
       <form>
         <label>{t("card-search")}</label>
         <input type="text" value={searchParams} onChange={handleSearchInputChange} />
@@ -69,12 +71,13 @@ function CardList() {
         </>
       ) : (
         // Affiche les dix dernières cartes visitées
-        <>
+        <div className="all-visited-cards">
           <h2>{t("recent-card")}</h2>
           {lastClickedCards.map((cardId) => {
             const card = cardData.find((c) => c.id === cardId);
             return card ? (
               <CardItem
+                className="recent-cards"
                 key={card.id}
                 data={card}
                 onClick={() => handleClick(card)}
@@ -82,9 +85,9 @@ function CardList() {
             ) : null;
           })}
           <h2>{t("list-card")}</h2> {cardList}
-        </>
+        </div>
       )}
-    </>
+    </div>
   );
 }
 
