@@ -6,6 +6,7 @@ import Provider from "../../contexts/user/Provider";
 import CardList from "../CardList/CardList";
 import Card from "../Cartes/Card";
 import BurgerMenuProvider from "../../contexts/burgerMenu/burgerMenu.jsx";
+import VigneronList from "../VigneronList/VigneronList.jsx";
 
 function App() {
   return (
@@ -22,6 +23,10 @@ function App() {
             </Route>
             <Route path="/cartes/:cardId">
               <Card />
+            </Route>
+            <Route path="/vignerons">
+              <h2>Vignerons</h2>
+              <VigneronList />
             </Route>
             <Route path="/animations">
               <h1>Les animations</h1>
