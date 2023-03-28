@@ -20,3 +20,15 @@
   border-radius: $border-radius;
   border: 5px solid $dark-green;
 }
+
+@mixin link{
+  all: unset;
+  text-decoration: none;
+  font-family: gotham, sans-serif;
+  transition: color 0.3s;
+}
+
+@mixin link-hover{
+  color: $light-green;
+}
+
