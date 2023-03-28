@@ -58,3 +58,12 @@ export function fetchWineMakerFromCard(wineMakerId) {
     return response.json();
   });
 }
+
+/**
+ * Retourne l'image de profil d'un vignerons
+ * @param wineMakerId
+ * @returns {string}
+ */
+export function wineMakerImgUrl(wineMakerId) {
+  return `${BASE_URL}/vignerons/${wineMakerId}/image`;
+}
