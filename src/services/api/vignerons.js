@@ -24,3 +24,18 @@ export function fetchCruFromVigneron(cruId) {
   });
 }
 
+/**
+ * Récupère le produit associé à un vigneron grâce à son ID
+ * @param produitId
+ * @returns {Promise<Response>}
+ */
+export function fetchProduitFromVigneron(produitId) {
+  return fetch(`${BASE_URL}/produits/${produitId}`, {
+    credentials: "include",
+  }).then((response) => {
+    if (!response.ok) {
+      return Promise.resolve(null);
+    }
+    return response.json();
+  });
+}
