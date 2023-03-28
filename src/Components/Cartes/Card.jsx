@@ -11,7 +11,7 @@ import {
 import Loading from "../Loading";
 import Map from "./Map";
 import "./Card.scss";
-import BugerButtonContext from "../../contexts/burgerButton/index";
+import BugerButtonContext from "../../contexts/burgerMenu/index";
 
 function Card() {
   // TODO: Changer le lien qui redirige vers la page du vignerons quand il y aura une page de vigneron

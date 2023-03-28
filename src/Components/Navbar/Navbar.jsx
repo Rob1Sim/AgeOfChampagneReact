@@ -11,7 +11,7 @@ import {
   logoutUrl,
 } from "../../services/api/users";
 import Language from "./Language/Language";
-import BugerButtonContext from "../../contexts/burgerButton/index";
+import BugerButtonContext from "../../contexts/burgerMenu/index";
 
 function Navbar() {
   const { userData } = useContext(UserContext);

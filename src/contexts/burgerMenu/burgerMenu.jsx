@@ -2,7 +2,13 @@ import React, { useMemo, useState } from "react";
 import PropTypes from "prop-types";
 import BugerButtonContext from "./index";
 
-function BurgerButtonProvider({ children }) {
+/**
+ * Permet de récupérer la valeur d'ouverture du menu burger (Si le menu est ouvert opened sera à True ...)
+ * @param children
+ * @returns {JSX.Element}
+ * @constructor
+ */
+function BurgerMenuProvider({ children }) {
   const [opened, setOpen] = useState(false);
   const contextValue = useMemo(() => ({ opened, setOpen }), [opened, setOpen]);
   return (
@@ -11,8 +17,8 @@ function BurgerButtonProvider({ children }) {
     </BugerButtonContext.Provider>
   );
 }
-BurgerButtonProvider.prototype = {
+BurgerMenuProvider.prototype = {
   children: PropTypes.node.isRequired,
 };
 
-export default BurgerButtonProvider;
+export default BurgerMenuProvider;

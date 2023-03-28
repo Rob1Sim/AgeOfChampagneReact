@@ -5,12 +5,12 @@ import Navbar from "../Navbar/Navbar";
 import Provider from "../../contexts/user/Provider";
 import CardList from "../CardList/CardList";
 import Card from "../Cartes/Card";
-import BurgerButtonProvider from "../../contexts/burgerButton/burgerButton";
+import BurgerMenuProvider from "../../contexts/burgerMenu/burgerMenu.jsx";
 
 function App() {
   return (
     <Provider>
-      <BurgerButtonProvider>
+      <BurgerMenuProvider>
         <div className="App">
           <Navbar />
           <Switch>
@@ -34,7 +34,7 @@ function App() {
             </Route>
           </Switch>
         </div>
-      </BurgerButtonProvider>
+      </BurgerMenuProvider>
     </Provider>
   );
 }
