@@ -64,25 +64,28 @@ function Card() {
             <aside>
               <h2>{card.nom}</h2>
               <label htmlFor=".nomCru">
-                Nom du cru :<p className="nomCru">{cru.libelle}</p>
+                {t("vintage-name")}
+                <p className="nomCru">{cru.libelle}</p>
               </label>
               <label htmlFor=".nomCru">
-                Région du cru :<p className="nomCru">{card.region}</p>
+                {t("Région du cru")}
+                <p className="nomCru">{card.region}</p>
               </label>
               <label htmlFor=".nomCru">
-                Information du cru :<p className="nomCru">{cru.infos}</p>
+                {t("vintage-infos")}
+                <p className="nomCru">{cru.infos}</p>
               </label>
             </aside>
           </section>
           <section>
-            <h3>Vigneron Partenaire</h3>
+            <h3>{t("winemaker")}</h3>
             {wineMaker === undefined ? (
               <Loading />
             ) : (
               <div className="wineMakerInfos">
                 <img
                   src={wineMakerImgUrl(wineMaker.id)}
-                  alt="Tête du vignerons"
+                  alt={t("alt-winemaker")}
                 />
                 <Link href="/cartes">
                   {wineMaker.prenom} {wineMaker.nom}
