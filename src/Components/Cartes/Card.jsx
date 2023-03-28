@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useLocation, useRoute } from "wouter";
 import { useTranslation } from "react-i18next";
 import {
@@ -11,11 +11,13 @@ import {
 import Loading from "../Loading";
 import Map from "./Map";
 import "./Card.scss";
+import BugerButtonContext from "../../contexts/burgerButton/index";
 
 function Card() {
   // TODO: Changer le lien qui redirige vers la page du vignerons quand il y aura une page de vigneron
   const [, { cardId }] = useRoute("/cartes/:cardId");
   const { t } = useTranslation("card");
+  const { opened } = useContext(BugerButtonContext);
   const [card, setCard] = useState();
   const [, setLocation] = useLocation();
   const [cru, setCru] = useState();
@@ -55,7 +57,8 @@ function Card() {
       {card === undefined || cru === undefined ? (
         <Loading />
       ) : (
-        <main>
+        /** si le menu burger est ouvert alors la class est display on * */
+        <main className={opened ? "display-on" : "display-off"}>
           <section>
             <img src={cardImgUrl(cardId)} alt={t("alt-card")} />
             <aside>
