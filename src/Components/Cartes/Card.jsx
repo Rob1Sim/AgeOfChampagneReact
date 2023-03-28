@@ -46,9 +46,15 @@ function Card() {
             <img src={cardImgUrl(cardId)} alt={t("alt-card")} />
             <aside>
               <h2>{card.nom}</h2>
-              <p>Nom du cru : {cru.libelle}</p>
-              <p>Région du cru : {card.region}</p>
-              <p>Informations du cru : {cru.infos}</p>
+              <label htmlFor=".nomCru">
+                Nom du cru :<p className="nomCru">{cru.libelle}</p>
+              </label>
+              <label htmlFor=".nomCru">
+                Région du cru :<p className="nomCru">{card.region}</p>
+              </label>
+              <label htmlFor=".nomCru">
+                Information du cru :<p className="nomCru">{cru.infos}</p>
+              </label>
             </aside>
           </section>
           <section>
