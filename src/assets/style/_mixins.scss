@@ -15,3 +15,8 @@
   background-color: $dark-brown;
   outline-offset: -2px;
 }
+
+@mixin dark-green-border{
+  border-radius: $border-radius;
+  border: 5px solid $dark-green;
+}
