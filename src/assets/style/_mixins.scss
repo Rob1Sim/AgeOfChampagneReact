@@ -22,10 +22,11 @@
 }
 
 @mixin link{
-  all: unset;
+  color: black;
   text-decoration: none;
   font-family: gotham, sans-serif;
   transition: color 0.3s;
+
 }
 
 @mixin link-hover{

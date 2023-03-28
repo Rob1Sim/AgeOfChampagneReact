@@ -79,3 +79,20 @@ section>h3{
 }
 
 
+@media screen and (min-width:767px){
+  section>img{
+    width: 30%;
+    height: 70%;
+
+  }
+
+  .wineMakerInfos>img{
+    width: 20%;
+
+  }
+
+  .wineMakerInfos>a{
+    font-size: 1.3em;
+  }
+}
+
