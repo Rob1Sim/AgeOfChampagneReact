@@ -9,7 +9,9 @@
       margin-top: 1rem;
   
       label {
-        margin-right: 1rem;
+        font-family: 'Indie Flower', handwriting, sans-serif;
+        display: block;
+        margin-right: 1em;
       }
   
       input[type="text"] {
@@ -17,7 +19,11 @@
         background-color: #C8AD7F;
         box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
         padding: 10px;
-        border: none;
+      }
+
+      input[type="text"]:focus {
+        outline: none;
+        outline-color: #b48d4b;
       }
     }
   }
