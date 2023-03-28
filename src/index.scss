@@ -1,6 +1,20 @@
+@import "src/assets/style/_variables";
 
 
 body{
     margin: 0;
 
+}
+
+p{
+    font-family: myriadPro, 'sans-serif' ;
+}
+
+h2{
+    font-size: 2em;
+    font-family: handwritting, 'sans-serif';
+}
+
+label{
+    font-family: avenir, 'sans-serif';
 }
