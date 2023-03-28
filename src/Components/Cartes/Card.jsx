@@ -38,24 +38,23 @@ function Card() {
 
   return (
     <div>
-      {card === undefined ? (
+      {card === undefined || cru === undefined ? (
         <Loading />
       ) : (
-        <div>
-          <img src={cardImgUrl(cardId)} alt={t("alt-card")} />
-          {card.nom}
-          {card.type}
-          {card.region}
-          <Map lat={card.latitude} long={card.longitude} />
-          {cru === undefined ? (
-            <p>Pas de cru pour cette carte</p>
-          ) : (
-            <div>
-              {cru.libelle}
-              {cru.infos}
-            </div>
-          )}
-        </div>
+        <main>
+          <section>
+            <img src={cardImgUrl(cardId)} alt={t("alt-card")} />
+            <aside>
+              <h2>{card.nom}</h2>
+              <p>Nom du cru : {cru.libelle}</p>
+              <p>Région du cru : {card.region}</p>
+              <p>Informations du cru : {cru.infos}</p>
+            </aside>
+          </section>
+          <section>
+            <Map lat={card.latitude} long={card.longitude} />
+          </section>
+        </main>
       )}
     </div>
   );
