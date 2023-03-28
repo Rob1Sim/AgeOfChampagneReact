@@ -68,7 +68,7 @@ function Card() {
                 <p className="nomCru">{cru.libelle}</p>
               </label>
               <label htmlFor=".nomCru">
-                {t("Région du cru")}
+                {t("region-name")}
                 <p className="nomCru">{card.region}</p>
               </label>
               <label htmlFor=".nomCru">
