@@ -11,13 +11,18 @@ export function AnimationList() {
       setAnimationData(data["hydra:member"]);
       setAnimationList(
         data["hydra:member"].map((animation) => (
-          <AnimationItem key={animation.id} data={animation} />
+          <AnimationItem
+            key={animation.id}
+            data={animation}
+            onClick={() => onclick(animation)}
+          />
         ))
       );
     });
   }, []);
 
-  return { animationList };
+  // eslint-disable-next-line react/jsx-no-useless-fragment,react/react-in-jsx-scope
+  return <>{animationList}</>;
 }
 
 export default AnimationList;
