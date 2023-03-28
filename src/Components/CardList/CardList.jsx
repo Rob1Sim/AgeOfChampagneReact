@@ -23,6 +23,7 @@ function CardList() {
           setCardList(
             data["hydra:member"].map((card) => (
               <CardItem
+                className="cards"
                 key={card.id}
                 data={card}
                 onClick={() => handleClick(card)}
@@ -76,6 +77,7 @@ function CardList() {
             const card = cardData.find((c) => c.id === cardId);
             return card ? (
               <CardItem
+                className="recent-cards"
                 key={card.id}
                 data={card}
                 onClick={() => handleClick(card)}
