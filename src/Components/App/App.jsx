@@ -5,7 +5,7 @@ import Navbar from "../Navbar/Navbar";
 import Provider from "../../contexts/user/Provider";
 import CardList from "../CardList/CardList";
 import Card from "../Cartes/Card";
-import BurgerMenuProvider from "../../contexts/burgerMenu/burgerMenu.jsx";
+import BurgerMenuProvider from "../../contexts/burgerMenu/burgerMenu";
 
 function App() {
   return (

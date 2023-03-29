@@ -69,7 +69,7 @@ function CardList() {
           onChange={handleSearchInputChange}
         />
         <select className="dropdown-category" name="category">
-          <option value selected>
+          <option value defaultValue="Catégorie">
             Catégorie
           </option>
           <option value={1}>Vignerons</option>
