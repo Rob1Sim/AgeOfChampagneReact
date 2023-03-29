@@ -68,6 +68,14 @@ function CardList() {
           value={searchParams}
           onChange={handleSearchInputChange}
         />
+        <select className="dropdown-category" name="category">
+          <option value selected>
+            Catégorie
+          </option>
+          <option value={1}>Vignerons</option>
+          <option value={2}>Cru</option>
+          <option value={3}>Région</option>
+        </select>
       </form>
 
       {searchParams ? (
