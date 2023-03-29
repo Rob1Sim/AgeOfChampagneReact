@@ -1,15 +1,16 @@
 import { React, useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { fetchAllCards } from "../../services/api/cards";
 import CardItem from "./CardItem";
 import { handleClick } from "../../hooks/cards/cardsClick";
-import { useTranslation } from "react-i18next";
 import "./CardList.scss";
+import Loading from "../Loading/Loading";
 
 function CardList() {
   const [cardData, setCardData] = useState([]);
-  const [cardList, setCardList] = useState([]);
+  const [cardList, setCardList] = useState(undefined);
   const [searchParams, setSearchParams] = useState("");
-  const [isDataAvailable, setIsDataAvailable] = useState(true);
+  const [, setIsDataAvailable] = useState(true);
   const { t } = useTranslation("cardlist");
 
   useEffect(() => {
@@ -30,7 +31,7 @@ function CardList() {
               />
             ))
           );
-        // Si le fetch ne retourne rien, isDataAvailable vaut false
+          // Si le fetch ne retourne rien, isDataAvailable vaut false
         } else {
           setIsDataAvailable(false);
         }
@@ -40,7 +41,8 @@ function CardList() {
       });
   }, [searchParams]);
 
-  const lastClickedCardsJson = window.sessionStorage.getItem("lastClickedCards");
+  const lastClickedCardsJson =
+    window.sessionStorage.getItem("lastClickedCards");
   let lastClickedCards = [];
 
   // Si les données de session sont présentes, essaie de faire un parse
@@ -54,20 +56,30 @@ function CardList() {
 
   const handleSearchInputChange = (event) => {
     setSearchParams(event.target.value);
-  }
+  };
 
   return (
     <div className="CardList">
       <form>
-        <label>{t("card-search")}</label>
-        <input type="text" value={searchParams} onChange={handleSearchInputChange} />
+        <label htmlFor=".searchBar">{t("card-search")}</label>
+        <input
+          id="searchBar"
+          type="text"
+          value={searchParams}
+          onChange={handleSearchInputChange}
+        />
       </form>
 
       {searchParams ? (
         // Si il y a du contenu dans le formulaire de recherche :
         // Affiche liste des cartes ou rien si aucune carte n'est trouvée
+        // eslint-disable-next-line react/jsx-no-useless-fragment
         <>
-          {cardData.length > 0 ? cardList : <p>Aucune carte n'a été trouvée.</p>}
+          {cardData.length > 0 ? (
+            cardList
+          ) : (
+            <p>Aucune carte n&apos a été trouvée.</p>
+          )}
         </>
       ) : (
         // Affiche les dix dernières cartes visitées
@@ -84,7 +96,12 @@ function CardList() {
               />
             ) : null;
           })}
-          <h2>{t("list-card")}</h2> {cardList}
+          <h2>{t("list-card")}</h2>
+          {cardList !== undefined && cardList !== null ? (
+            <div>{cardList}</div>
+          ) : (
+            <Loading />
+          )}
         </div>
       )}
     </div>
