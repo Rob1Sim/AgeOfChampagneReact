@@ -8,7 +8,7 @@ export function animationImgUrl(animationId) {
   return `${BASE_URL}/animations/${animationId}/image`;
 }
 
-export function getAnimationById(animId) {
+export function fetchAnimationById(animId) {
   return fetch(`${BASE_URL}/animations/${animId}`, {
     credentials: "include",
   }).then((response) => {
