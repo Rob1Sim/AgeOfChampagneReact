@@ -36,6 +36,10 @@ function App() {
               <h1>Votre profile</h1>
             </Route>
           </Switch>
+          <MessengerCustomerChat
+            pageId="114745941570532"
+            appId="889932822118119"
+          />
         </div>
       </BurgerMenuProvider>
     </Provider>
