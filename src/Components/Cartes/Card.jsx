@@ -8,7 +8,7 @@ import {
   fetchWineMakerFromCard,
   wineMakerImgUrl,
 } from "../../services/api/cards";
-import Loading from "../Loading";
+import Loading from "../Loading/Loading.jsx";
 import Map from "./Map";
 import "./Card.scss";
 import BugerButtonContext from "../../contexts/burgerMenu/index";

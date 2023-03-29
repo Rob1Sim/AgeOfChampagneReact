@@ -25,6 +25,7 @@ function Navbar() {
     }
   };
   if (userData !== null && userData !== undefined) {
+    console.log(userData);
     // TODO: Rediriger sur la page de connexion
   }
   return (
