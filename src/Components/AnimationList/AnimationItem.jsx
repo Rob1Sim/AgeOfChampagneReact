@@ -14,7 +14,6 @@ export function AnimationItem({ data, onClick }) {
           setLocation(`animations/${data.id}`);
         }}
       >
-        <p>{data.nom}</p>
         <img src={animationImgUrl(data.id)} alt={data.nom} />
       </button>
     </div>
