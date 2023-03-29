@@ -32,19 +32,22 @@ export default function Animation() {
       {animation === undefined ? (
         <Loading />
       ) : (
-        <div>
+        <div className="animation-prix">
           <section>
-            <h2>{animation.nom}</h2>
             <img src={animationImgUrl(animId)} alt="Carte" />
-            <aside>
+            <aside className="info">
+              <h2>{animation.nom}</h2>
               <label>
-                <p>{`Début de l'animation :${animation.horaireDeb}`}</p>
+                {`Début de l'animation :`}
+                <p>{animation.horaireDeb}</p>
               </label>
               <label>
-                <p>{`Fin de l'animation :${animation.horaireFin}`}</p>
+                {`Fin de l'animation :`}
+                <p>{animation.horaireFin}</p>
               </label>
               <label>
-                <p>{`Prix d'entrée : ${animation.prix}`}</p>
+                {`Prix d'entrée :`}
+                <p>{animation.horaireFin} &euro;</p>
               </label>
             </aside>
           </section>
