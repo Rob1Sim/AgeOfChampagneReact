@@ -23,6 +23,7 @@ i18next
         navbar: navbar.en,
         card: card.en,
         loading: loading.en,
+        cardlist: cardlist.en,
         animation: animation.en,
       },
     },
