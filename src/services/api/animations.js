@@ -9,9 +9,7 @@ export function animationImgUrl(animationId) {
 }
 
 export function fetchAnimationById(animId) {
-  return fetch(`${BASE_URL}/animations/${animId}`, {
-    credentials: "include",
-  }).then((response) => {
+  return fetch(`${BASE_URL}/animations/${animId}`).then((response) => {
     if (!response.ok) {
       return Promise.resolve(null);
     }
