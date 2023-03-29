@@ -7,3 +7,14 @@ export function fetchAllAnimations() {
 export function animationImgUrl(animationId) {
   return `${BASE_URL}/animations/${animationId}/image`;
 }
+
+export function getAnimationById(animId) {
+  return fetch(`${BASE_URL}/animations/${animId}`, {
+    credentials: "include",
+  }).then((response) => {
+    if (!response.ok) {
+      return Promise.resolve(null);
+    }
+    return response.json();
+  });
+}
