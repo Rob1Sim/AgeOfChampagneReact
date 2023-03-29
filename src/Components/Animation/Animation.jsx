@@ -29,15 +29,15 @@ export default function Animation() {
 
   return (
     <div>
-        {animation === undefined ? (
-          <Loading />
-        ) : (
-          <div>
-            <section>
-              <img src={animationImgUrl(animId)} alt="Carte" />
-            </section>
-          </div>
-        )}
-      </div>
+      {animation === undefined ? (
+        <Loading />
+      ) : (
+        <div>
+          <section>
+            <img src={animationImgUrl(animId)} alt="Carte" />
+          </section>
+        </div>
+      )}
+    </div>
   );
 }
