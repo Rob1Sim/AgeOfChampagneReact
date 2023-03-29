@@ -5,8 +5,9 @@ import Navbar from "../Navbar/Navbar";
 import Provider from "../../contexts/user/Provider";
 import CardList from "../CardList/CardList";
 import Card from "../Cartes/Card";
-import BurgerMenuProvider from "../../contexts/burgerMenu/burgerMenu.jsx";
-import AnimationList from "../AnimationList/AnimationList.jsx";
+import BurgerMenuProvider from "../../contexts/burgerMenu/burgerMenu";
+import AnimationList from "../AnimationList/AnimationList";
+import MessengerCustomerChat from 'react-messenger-customer-chat';
 
 function App() {
   return (
