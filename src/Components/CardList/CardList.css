@@ -1,3 +1,26 @@
-
+.CardList {
+  font-family: handwritting, 'sans-serif';
+  text-align: center; }
+  .CardList .all-cards {
+    display: inline-block;
+    margin: 3px; }
+  .CardList .all-visited-cards {
+    display: inline-block;
+    margin: 3px; }
+  .CardList form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem; }
+    .CardList form label {
+      font-family: 'Indie Flower', handwriting, sans-serif;
+      display: block;
+      margin-right: 1em; }
+    .CardList form input[type="text"] {
+      border: #B5BE6B 1px solid;
+      padding: 10px; }
+    .CardList form input[type="text"]:focus {
+      outline: none;
+      outline-color: #b48d4b; }
 
 /*# sourceMappingURL=CardList.css.map */
