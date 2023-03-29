@@ -32,7 +32,7 @@ export default function Animation() {
       {animation === undefined ? (
         <Loading />
       ) : (
-        <div className="animation-prix">
+        <div className="animation-item">
           <section>
             <img src={animationImgUrl(animId)} alt="Carte" />
             <aside className="info">
@@ -47,7 +47,7 @@ export default function Animation() {
               </label>
               <label>
                 {`Prix d'entrée :`}
-                <p>{animation.horaireFin} &euro;</p>
+                <p>{animation.prix} &euro;</p>
               </label>
             </aside>
           </section>

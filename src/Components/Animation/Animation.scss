@@ -1,13 +1,13 @@
 .animation-item {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   padding: 10px;
   border: 1px solid #ccc;
 }
 
 .animation-item img {
   max-width: 100%;
+  margin-left: 16px;
 }
 
 .animation-item .info {
