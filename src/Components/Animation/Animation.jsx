@@ -34,7 +34,19 @@ export default function Animation() {
       ) : (
         <div>
           <section>
+            <h2>{animation.nom}</h2>
             <img src={animationImgUrl(animId)} alt="Carte" />
+            <aside>
+              <label>
+                <p>{`Début de l'animation :${animation.horaireDeb}`}</p>
+              </label>
+              <label>
+                <p>{`Fin de l'animation :${animation.horaireFin}`}</p>
+              </label>
+              <label>
+                <p>{`Prix d'entrée : ${animation.prix}`}</p>
+              </label>
+            </aside>
           </section>
         </div>
       )}
