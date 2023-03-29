@@ -1,14 +1,19 @@
 import "./App.css";
 import React from "react";
 import { Redirect, Route, Switch } from "wouter";
+import MessengerCustomerChat from "react-messenger-customer-chat";
 import Navbar from "../Navbar/Navbar";
 import Provider from "../../contexts/user/Provider";
 import CardList from "../CardList/CardList";
 import Card from "../Cartes/Card";
 import BurgerMenuProvider from "../../contexts/burgerMenu/burgerMenu";
+// eslint-disable-next-line import/no-named-as-default
 import AnimationList from "../AnimationList/AnimationList";
-import MessengerCustomerChat from 'react-messenger-customer-chat';
 
+//<MessengerCustomerChat
+//             pageId=""
+//             appId=""
+//           />
 function App() {
   return (
     <Provider>
@@ -36,10 +41,7 @@ function App() {
               <h1>Votre profile</h1>
             </Route>
           </Switch>
-          <MessengerCustomerChat
-            pageId="114745941570532"
-            appId="889932822118119"
-          />
+
         </div>
       </BurgerMenuProvider>
     </Provider>
