@@ -1,6 +1,10 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Redirect, useLocation, useRoute } from "wouter";
-import { fetchAnimationById } from "../../services/api/animations";
+import {
+  animationImgUrl,
+  fetchAnimationById,
+} from "../../services/api/animations";
+import Loading from "../Loading";
 
 export default function Animation() {
   const [match, { animId }] = useRoute("/animations/:animId");
@@ -22,4 +26,18 @@ export default function Animation() {
       setLocation("/animations");
     }
   }, [animation]);
+
+  return (
+    <div>
+        {animation === undefined ? (
+          <Loading />
+        ) : (
+          <div>
+            <section>
+              <img src={animationImgUrl(animId)} alt="Carte" />
+            </section>
+          </div>
+        )}
+      </div>
+  );
 }
