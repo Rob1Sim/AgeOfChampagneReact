@@ -5,11 +5,13 @@ import {
   fetchAnimationById,
 } from "../../services/api/animations";
 import Loading from "../Loading";
+import { useTranslation } from "react-i18next";
 
 export default function Animation() {
   const [match, { animId }] = useRoute("/animations/:animId");
   const [animation, setAnimation] = useState(undefined);
   const [location, setLocation] = useLocation();
+  const {t} = useTranslation("animation");
 
   useEffect(() => {
     setAnimation(undefined);
@@ -38,15 +40,15 @@ export default function Animation() {
             <aside className="info">
               <h2>{animation.nom}</h2>
               <label>
-                {`Début de l'animation :`}
+                {t("animation-hdeb")}
                 <p>{animation.horaireDeb}</p>
               </label>
               <label>
-                {`Fin de l'animation :`}
+                {t("animation-hfin")}
                 <p>{animation.horaireFin}</p>
               </label>
               <label>
-                {`Prix d'entrée :`}
+                {t("animation-prix")}
                 <p>{animation.prix} &euro;</p>
               </label>
             </aside>
