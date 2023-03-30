@@ -5,7 +5,7 @@ import {
   fetchProduitFromVigneron,
 } from "../../services/api/vignerons";
 import VigneronItem from "./VigneronItem";
-import Loading from "../Loading.jsx";
+import Loading from "../Loading";
 
 export function VigneronList() {
   const [vigneronData, setVigneronData] = useState([]);
@@ -18,6 +18,7 @@ export function VigneronList() {
     setIsDataAvailable(true);
     setProduit(undefined);
     setCru(undefined);
+    setVigneronList(undefined);
     fetchAllVignerons()
       .then((data) => {
         // Si le fetch retourne quelque chose, crée un composant VigneronItem
@@ -57,8 +58,9 @@ export function VigneronList() {
       });
   }, []);
 
-  // eslint-disable-next-line react/react-in-jsx-scope,react/jsx-no-useless-fragment
-  return <>{vigneronList}</>;
+  return (
+    <div>{vigneronList === undefined ? <Loading /> : <>{vigneronList}</>}</div>
+  );
 }
 
 export default VigneronList;
