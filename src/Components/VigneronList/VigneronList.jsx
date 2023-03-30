@@ -8,6 +8,7 @@ export function VigneronList() {
   const [isDataAvailable, setIsDataAvailable] = useState(true);
 
   useEffect(() => {
+    setIsDataAvailable(true);
     fetchAllVignerons()
       .then((data) => {
         // Si le fetch retourne quelque chose, crée un composant VigneronItem
