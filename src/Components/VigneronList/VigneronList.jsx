@@ -1,14 +1,23 @@
 import { useState, useEffect } from "react";
-import { fetchAllVignerons } from "../../services/api/vignerons";
+import {
+  fetchAllVignerons,
+  fetchCruFromVigneron,
+  fetchProduitFromVigneron,
+} from "../../services/api/vignerons";
 import VigneronItem from "./VigneronItem";
+import Loading from "../Loading.jsx";
 
 export function VigneronList() {
   const [vigneronData, setVigneronData] = useState([]);
   const [vigneronList, setVigneronList] = useState([]);
+  const [cru, setCru] = useState();
+  const [produit, setProduit] = useState();
   const [isDataAvailable, setIsDataAvailable] = useState(true);
 
   useEffect(() => {
     setIsDataAvailable(true);
+    setProduit(undefined);
+    setCru(undefined);
     fetchAllVignerons()
       .then((data) => {
         // Si le fetch retourne quelque chose, crée un composant VigneronItem
@@ -27,6 +36,21 @@ export function VigneronList() {
         } else {
           setIsDataAvailable(false);
         }
+        // Récupération du cru à partir de la relation vigneron
+        fetchCruFromVigneron(data.cruID).then((cruResponse) => {
+          if (cruResponse === null) {
+            setCru(undefined);
+          }
+          setCru(cruResponse);
+        });
+
+        // Récupération du produit à partir de la relation vigneron
+        fetchProduitFromVigneron(data.produitID).then((produitResponse) => {
+          if (produitResponse === null) {
+            setProduit(undefined);
+          }
+          setProduit(produitResponse);
+        });
       })
       .catch((error) => {
         console.error("Error fetching winemaker:", error);
