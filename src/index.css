@@ -7,7 +7,7 @@ Error: File to import not found or unreadable: src/assets/style/_variables.
 3: 
 4: body{
 5:     margin: 0;
-6: 
+6:     min-height: 100vh;
 
 Backtrace:
 index.scss:1
@@ -46,4 +46,4 @@ index.scss:1
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: File to import not found or unreadable: src/assets/style/_variables.\A         on line 1 of index.scss\A \A 1: @import \"src/assets/style/_variables\";\A 2: \A 3: \A 4: body{\A 5:     margin: 0;\A 6: "; }
+  content: "Error: File to import not found or unreadable: src/assets/style/_variables.\A         on line 1 of index.scss\A \A 1: @import \"src/assets/style/_variables\";\A 2: \A 3: \A 4: body{\A 5:     margin: 0;\A 6:     min-height: 100vh;"; }
