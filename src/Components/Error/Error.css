@@ -5,9 +5,9 @@ Error: File to import not found or unreadable: src/assets/style/_variables.
 1: @import "src/assets/style/_variables";
 2: 
 3: .error{
-4:   display: flex;
-5:   flex-direction: column;
-6:   align-items: center;
+4:   height: 90vh;
+5:   display: flex;
+6:   flex-direction: column;
 
 Backtrace:
 Error.scss:1
@@ -46,4 +46,4 @@ Error.scss:1
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: File to import not found or unreadable: src/assets/style/_variables.\A         on line 1 of Error.scss\A \A 1: @import \"src/assets/style/_variables\";\A 2: \A 3: .error{\A 4:   display: flex;\A 5:   flex-direction: column;\A 6:   align-items: center;"; }
+  content: "Error: File to import not found or unreadable: src/assets/style/_variables.\A         on line 1 of Error.scss\A \A 1: @import \"src/assets/style/_variables\";\A 2: \A 3: .error{\A 4:   height: 90vh;\A 5:   display: flex;\A 6:   flex-direction: column;"; }

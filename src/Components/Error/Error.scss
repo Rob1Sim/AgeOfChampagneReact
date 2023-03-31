@@ -1,6 +1,7 @@
 @import "src/assets/style/_variables";
 
 .error{
+  height: 90vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,6 +12,6 @@
 }
 
 .error>img{
-  width: 30%;
-  height: 30%;
+  width: 80%;
+  height: 70%;
 }
