@@ -141,20 +141,22 @@ function CardList() {
         // Affiche les dix dernières cartes visitées
         <div className="all-visited-cards">
           <h2>{t("recent-card")}</h2>
-          {lastClickedCards.map((cardId) => {
-            const card = cardData.find((c) => c.id === cardId);
-            return card ? (
-              <CardItem
-                className="recent-cards"
-                key={card.id}
-                data={card}
-                onClick={() => handleClick(card)}
-              />
-            ) : null;
-          })}
+          <div className="list-all-cards">
+            {lastClickedCards.map((cardId) => {
+              const card = cardData.find((c) => c.id === cardId);
+              return card ? (
+                <CardItem
+                  className="recent-cards"
+                  key={card.id}
+                  data={card}
+                  onClick={() => handleClick(card)}
+                />
+              ) : null;
+            })}
+          </div>
           <h2>{t("list-card")}</h2>
           {cardList !== undefined && cardList !== null ? (
-            <div>{cardList}</div>
+            <div className="list-all-cards">{cardList}</div>
           ) : (
             <Loading />
           )}

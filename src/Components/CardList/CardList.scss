@@ -3,13 +3,13 @@
     text-align: center;
   
     .all-cards {
-      display: inline-block;
       margin: 3px;
     }
 
     .all-visited-cards {
-      display: inline-block;
-      margin: 3px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
     }
   
     form {
@@ -45,10 +45,30 @@
   font-family: 'gotham', sans-serif;
 }
 
+.list-all-cards{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
 @media screen and (min-width:767px){
   .CardList{
     form {
       flex-direction: row;
     }
+  }
+  .list-all-cards{
+    flex-direction: row;
+
+  }
+}
+
+@media screen and (min-width:1000px){
+  .list-all-cards{
+    width: 70%;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
   }
 }
