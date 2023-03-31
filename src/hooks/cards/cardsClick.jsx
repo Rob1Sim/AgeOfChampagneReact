@@ -1,4 +1,4 @@
-function handleClick(card) {
+export function handleClick(card) {
   const lastClickedCard = JSON.parse(
     window.sessionStorage.getItem("lastClickedCards") || "[]"
   );
@@ -18,5 +18,3 @@ function handleClick(card) {
     JSON.stringify(lastClickedCard)
   );
 }
-
-export default handleClick;
