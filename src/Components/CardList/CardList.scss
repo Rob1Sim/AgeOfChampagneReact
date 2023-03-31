@@ -1,10 +1,17 @@
+@import "src/assets/style/_variables";
+
 .CardList {
     font-family: handwritting, 'sans-serif';
     text-align: center;
   
     .all-cards {
-      margin: 3px;
+      transition: background-color 0.5s;
+      padding: 5px;
+      border-radius: $border-radius;
     }
+  .all-cards:hover {
+    background-color: #314015;
+  }
 
     .all-visited-cards {
       width: 100%;
