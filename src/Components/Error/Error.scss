@@ -1,0 +1,17 @@
+@import "src/assets/style/_variables";
+
+.error{
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.error>h1{
+  font-family: 'gotham', sans-serif;
+}
+
+.error>img{
+  width: 80%;
+  height: 70%;
+}
