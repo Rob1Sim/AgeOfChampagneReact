@@ -16,3 +16,9 @@ FROM admin_development AS admin_build
 ARG REACT_APP_API_ENTRYPOINT
 RUN set -eux; \
         npm run build
+
+FROM nginx:$NGINX_VERSION-alpine AS admin_nginx
+COPY docker/nginx/conf.d/default.conf /etc/nginx/conf.d/
+WORKDIR /usr/src/admin
+COPY --from=admin_build /usr/src/admin ./
+
