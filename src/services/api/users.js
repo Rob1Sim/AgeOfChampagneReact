@@ -1,14 +1,12 @@
-export const BASE_URL = "https://127.0.0.1:8000/api";
-export const BASE_URL_WITHOUT_API = "https://localhost:8000";
+import { BASE_URL, BASE_URL_WITHOUT_API, fetchWithCredentials } from "./api";
+
 export function getMe() {
-  return fetch(`${BASE_URL}/me`, { credentials: "include" }).then(
-    (response) => {
-      if (response.status === 401) {
-        return Promise.resolve(null);
-      }
-      return response.json();
+  return fetchWithCredentials(`${BASE_URL}/me`).then((response) => {
+    if (response.status === 401) {
+      return Promise.resolve(null);
     }
-  );
+    return response.json();
+  });
 }
 
 export function loginUrl() {
