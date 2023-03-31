@@ -1,10 +1,11 @@
-import { React, useState, useEffect } from "react";
+import { React, useState, useEffect, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { fetchAllCards } from "../../services/api/cards";
 import CardItem from "./CardItem";
 import { handleClick } from "../../hooks/cards/cardsClick";
 import "./CardList.scss";
 import Loading from "../Loading/Loading";
+import BugerButtonContext from "../../contexts/burgerMenu/index";
 
 function CardList() {
   const [cardData, setCardData] = useState([]);
@@ -12,6 +13,7 @@ function CardList() {
   const [searchParams, setSearchParams] = useState("");
   const [, setIsDataAvailable] = useState(true);
   const { t } = useTranslation("cardlist");
+  const { opened } = useContext(BugerButtonContext);
 
   useEffect(() => {
     setIsDataAvailable(true);
@@ -59,7 +61,7 @@ function CardList() {
   };
 
   return (
-    <div className="CardList">
+    <div className={opened ? "display-on" : "CardList"}>
       <form>
         <label htmlFor=".searchBar">{t("card-search")}</label>
         <input
