@@ -7,6 +7,7 @@ import CardList from "../CardList/CardList";
 import Card from "../Cartes/Card";
 import BurgerMenuProvider from "../../contexts/burgerMenu/burgerMenu";
 import AnimationList from "../AnimationList/AnimationList";
+import Error from "../Error/Error";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
             <Route path="/profile">
               <h1>Votre profile</h1>
             </Route>
+            <Route component={Error} />
           </Switch>
         </div>
       </BurgerMenuProvider>
