@@ -72,6 +72,11 @@ export function wineMakerImgUrl(wineMakerId) {
   return `${BASE_URL}/vignerons/${wineMakerId}/image`;
 }
 
+/**
+ * Récupère les cartes en spécifiant un filtre
+ * @param filter
+ * @returns {Promise<any>}
+ */
 export function getCardWithFilter(filter) {
   if (filter !== "") {
     return fetchWithCredentials(
