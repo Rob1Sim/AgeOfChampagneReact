@@ -12,6 +12,7 @@ import {
 } from "../../services/api/users";
 import Language from "./Language/Language";
 import BugerButtonContext from "../../contexts/burgerMenu/index";
+import { BASE_URL_WITHOUT_API } from "../../services/api/api";
 
 function Navbar() {
   const { userData } = useContext(UserContext);
@@ -24,7 +25,9 @@ function Navbar() {
       setOpen(!isOpen);
     }
   };
-
+  if (userData === null) {
+    document.location.href = `${BASE_URL_WITHOUT_API}/login`;
+  }
   return (
     <nav>
       <div className="start">
