@@ -11,3 +11,8 @@ RUN set -eux; \
 COPY . ./
 VOLUME node_modules
 CMD ["npm", "start"]
+
+FROM admin_development AS admin_build
+ARG REACT_APP_API_ENTRYPOINT
+RUN set -eux; \
+        npm run build
