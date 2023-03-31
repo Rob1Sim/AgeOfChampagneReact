@@ -7,14 +7,15 @@ function CardItem({ data, onClick }) {
   const [, setLocation] = useLocation();
   return (
     <div className="all-cards">
-      <button type="button"
+      <button
+        type="button"
         onClick={() => {
           onClick(data);
           setLocation(`cartes/${data.id}`);
         }}
       >
-        <img src={cardImgUrl(data.id)} alt={data.nom}/>
-        </button>
+        <img src={cardImgUrl(data.id)} alt={data.nom} />
+      </button>
     </div>
   );
 }

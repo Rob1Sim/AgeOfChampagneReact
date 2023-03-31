@@ -1,11 +1,15 @@
-import { BASE_URL, BASE_URL_WITHOUT_API } from "./users";
+import { BASE_URL, BASE_URL_WITHOUT_API } from "./api";
+
+export function fetchWithCredentials(url) {
+  return fetch(url, { credentials: "include" });
+}
 
 export function fetchAllCards(search = null) {
   let url = `${BASE_URL}/cartes`;
   if (search) {
     url += `?nom=${search}`;
   }
-  return fetch(url).then((response) => response.json());
+  return fetchWithCredentials(url).then((response) => response.json());
 }
 
 export function cardImgUrl(cardId) {
@@ -17,14 +21,14 @@ export function cardImgUrl(cardId) {
  * @returns {Promise<Response>}
  */
 export function fetchCard(cardId) {
-  return fetch(`${BASE_URL}/cartes/${cardId}`, {
-    credentials: "include",
-  }).then((response) => {
-    if (!response.ok) {
-      return Promise.resolve(null);
+  return fetchWithCredentials(`${BASE_URL}/cartes/${cardId}`).then(
+    (response) => {
+      if (!response.ok) {
+        return Promise.resolve(null);
+      }
+      return response.json();
     }
-    return response.json();
-  });
+  );
 }
 
 /**
@@ -33,14 +37,14 @@ export function fetchCard(cardId) {
  * @returns {Promise<Response>}
  */
 export function fetchCruFromCard(cruLink) {
-  return fetch(`${BASE_URL_WITHOUT_API}${cruLink}`, {
-    credentials: "include",
-  }).then((response) => {
-    if (!response.ok) {
-      return Promise.resolve(null);
+  return fetchWithCredentials(`${BASE_URL_WITHOUT_API}${cruLink}`).then(
+    (response) => {
+      if (!response.ok) {
+        return Promise.resolve(null);
+      }
+      return response.json();
     }
-    return response.json();
-  });
+  );
 }
 
 /**
@@ -49,14 +53,14 @@ export function fetchCruFromCard(cruLink) {
  * @returns {Promise<Response>}
  */
 export function fetchWineMakerFromCard(wineMakerId) {
-  return fetch(`${BASE_URL}/vignerons/${wineMakerId}`, {
-    credentials: "include",
-  }).then((response) => {
-    if (!response.ok) {
-      return Promise.resolve(null);
+  return fetchWithCredentials(`${BASE_URL}/vignerons/${wineMakerId}`).then(
+    (response) => {
+      if (!response.ok) {
+        return Promise.resolve(null);
+      }
+      return response.json();
     }
-    return response.json();
-  });
+  );
 }
 
 /**

@@ -24,9 +24,7 @@ function Navbar() {
       setOpen(!isOpen);
     }
   };
-  if (userData !== null && userData !== undefined) {
-    // TODO: Rediriger sur la page de connexion
-  }
+
   return (
     <nav>
       <div className="start">
