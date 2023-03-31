@@ -7,6 +7,37 @@ import "./CardList.scss";
 import Loading from "../Loading/Loading";
 import BugerButtonContext from "../../contexts/burgerMenu/index";
 
+/**
+ * Utilise les données récupéré pour les transformer en Cartes et les afficher dans la vue
+ * @param dataFilter
+ * @param setCardData
+ * @param setCardList
+ * @param setIsDataAvailable
+ */
+function mapCardToTheView(
+  dataFilter,
+  setCardData,
+  setCardList,
+  setIsDataAvailable
+) {
+  if (dataFilter["hydra:member"].length > 0) {
+    setCardData(dataFilter["hydra:member"]);
+    setCardList(
+      dataFilter["hydra:member"].map((card) => (
+        <CardItem
+          className="cards"
+          key={card.id}
+          data={card}
+          onClick={() => handleClick(card)}
+        />
+      ))
+    );
+    // Si le fetch ne retourne rien, isDataAvailable vaut false
+  } else {
+    setIsDataAvailable(false);
+  }
+}
+
 function CardList() {
   const [cardData, setCardData] = useState([]);
   const [cardList, setCardList] = useState(undefined);
@@ -22,22 +53,7 @@ function CardList() {
     fetchAllCards(searchParams)
       .then((data) => {
         // Si le fetch retourne quelque chose, crée un composant CardItem
-        if (data["hydra:member"].length > 0) {
-          setCardData(data["hydra:member"]);
-          setCardList(
-            data["hydra:member"].map((card) => (
-              <CardItem
-                className="cards"
-                key={card.id}
-                data={card}
-                onClick={() => handleClick(card)}
-              />
-            ))
-          );
-          // Si le fetch ne retourne rien, isDataAvailable vaut false
-        } else {
-          setIsDataAvailable(false);
-        }
+        mapCardToTheView(data, setCardData, setCardList, setIsDataAvailable);
       })
       .catch((error) => {
         console.error("Error fetching cards:", error);
@@ -48,22 +64,12 @@ function CardList() {
     getCardWithFilter(category)
       .then((dataFilter) => {
         // Si le fetch retourne quelque chose, crée un composant CardItem
-        if (dataFilter["hydra:member"].length > 0) {
-          setCardData(dataFilter["hydra:member"]);
-          setCardList(
-            dataFilter["hydra:member"].map((card) => (
-              <CardItem
-                className="cards"
-                key={card.id}
-                data={card}
-                onClick={() => handleClick(card)}
-              />
-            ))
-          );
-          // Si le fetch ne retourne rien, isDataAvailable vaut false
-        } else {
-          setIsDataAvailable(false);
-        }
+        mapCardToTheView(
+          dataFilter,
+          setCardData,
+          setCardList,
+          setIsDataAvailable
+        );
       })
       .catch((error) => {
         console.error("Error fetching cards:", error);
