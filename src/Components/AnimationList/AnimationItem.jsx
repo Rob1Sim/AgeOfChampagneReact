@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { useLocation } from "wouter";
 import { animationImgUrl } from "../../services/api/animations";
 
-export function AnimationItem({ data, onClick }) {
+function AnimationItem({ data, onClick }) {
   const [, setLocation] = useLocation();
   return (
     <div>

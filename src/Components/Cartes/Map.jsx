@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 import PropTypes from "prop-types";
-import Loading from "../Loading/Loading.jsx";
+import Loading from "../Loading/Loading";
 import "./Card.scss";
 
 function Map({ lat, long }) {

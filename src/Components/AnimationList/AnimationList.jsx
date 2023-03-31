@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { fetchAllAnimations } from "../../services/api/animations";
 import AnimationItem from "./AnimationItem";
 
-export function AnimationList() {
-  const [animationData, setAnimationData] = useState([]);
+function AnimationList() {
+  const [, setAnimationData] = useState([]);
   const [animationList, setAnimationList] = useState([]);
 
   useEffect(() => {
