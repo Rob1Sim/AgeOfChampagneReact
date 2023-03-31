@@ -1,0 +1,10 @@
+version: '3.7'
+services:
+  serv:
+    image: ${APP_PROD_IMAGE_NAME}:${APP_PROD_IMAGE_VERSION}
+    ports:
+      - "8085:80"
+    environment:
+      APP_PROD_IMAGE_NAME: ${APP_PROD_IMAGE_NAME}
+      APP_PROD_IMAGE_VERSION: ${APP_PROD_IMAGE_VERSION}
+    restart: always
