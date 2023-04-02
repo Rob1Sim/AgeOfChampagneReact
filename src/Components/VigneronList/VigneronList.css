@@ -1,6 +1,6 @@
 /*
 Error: File to import not found or unreadable: src/assets/style/_variables.
-        on line 1 of Card.scss
+        on line 1 of VigneronList.scss
 
 1: @import "src/assets/style/_variables";
 2: @import "src/assets/style/_mixins";
@@ -46,4 +46,4 @@ Card.scss:1
 body:before {
     white-space: pre;
     font-family: monospace;
-    content: "Error: File to import not found or unreadable: src/assets/style/_variables.\A         on line 1 of Card.scss\A \A 1: @import \"src/assets/style/_variables\";\A 2: @import \"src/assets/style/_mixins\";\A 3: .display-on{\A 4:   display: none;\A 5: }\A 6: "; }
+    content: "Error: File to import not found or unreadable: src/assets/style/_variables.\A         on line 1 of VigneronList.scss\A \A 1: @import \"src/assets/style/_variables\";\A 2: @import \"src/assets/style/_mixins\";\A 3: .display-on{\A 4:   display: none;\A 5: }\A 6: "; }
