@@ -2,11 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import { useLocation } from "wouter";
 import { animationImgUrl } from "../../services/api/animations";
+import "./AnimationList.scss";
 
 function AnimationItem({ data, onClick }) {
   const [, setLocation] = useLocation();
   return (
-    <div>
+    <div className="animationItem">
       <button
         type="button"
         onClick={() => {
