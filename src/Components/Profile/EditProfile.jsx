@@ -17,9 +17,9 @@ function EditProfile() {
       userPassword !== ""
     ) {
       const newUser = {
-        userLogin,
-        userPassword,
-        userEmail,
+        login: userLogin,
+        password: userPassword,
+        email: userEmail,
       };
       patchUser(userData.id, newUser);
     }
@@ -40,7 +40,7 @@ function EditProfile() {
       <div>
         <label htmlFor="email">Email :</label>
         <input
-          type="text"
+          type="email"
           id="email"
           value={userEmail}
           onChange={(e) => setUserEmail(e.target.value)}
