@@ -48,6 +48,16 @@ function EditProfile() {
         />
       </div>
       <div>
+        <label htmlFor="password">Password :</label>
+        <input
+          type="password"
+          id="password"
+          value={userPassword}
+          onChange={(e) => setUserPassword(e.target.value)}
+          required
+        />
+      </div>
+      <div>
         <button type="submit">Modifier</button>
       </div>
     </form>
