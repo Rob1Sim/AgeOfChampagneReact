@@ -1,15 +1,27 @@
 import React, { useContext, useState } from "react";
 import UserContext from "../../contexts/user/index";
+import { patchUser } from "../../services/api/users";
 
 function EditProfile() {
   const { userData } = useContext(UserContext);
   const [userLogin, setUserLogin] = useState(userData ? userData.login : "");
   const [userEmail, setUserEmail] = useState(userData ? userData.email : "");
+  const [userPassword, setUserPassword] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (userLogin !== "" && userEmail !== "") {
-      // TODO Patch l'utilisateur courant
+    if (
+      userData !== null &&
+      userLogin !== "" &&
+      userEmail !== "" &&
+      userPassword !== ""
+    ) {
+      const newUser = {
+        userLogin,
+        userPassword,
+        userEmail,
+      };
+      patchUser(userData.id, newUser);
     }
   };
 
