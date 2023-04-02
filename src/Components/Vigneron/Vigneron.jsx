@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Redirect, useLocation, useRoute } from "wouter";
+import { Redirect, useRoute } from "wouter";
 import { useTranslation } from "react-i18next";
 import {
   vigneronImgUrl,
@@ -9,20 +9,19 @@ import {
 } from "../../services/api/vignerons";
 import Loading from "../Loading/Loading";
 import "./Vigneron.scss";
+import Error from "../Error/Error";
 
 export function Vigneron() {
   const [, { vigneronId }] = useRoute("/vignerons/:vigneronId");
-  const [vigneron, setVigneron] = useState(undefined);
+  const [vigneron, setVigneron] = useState();
   const [cru, setCru] = useState();
   const [produit, setProduit] = useState();
-  const [location, setLocation] = useLocation();
   const { t } = useTranslation("vigneron");
 
   useEffect(() => {
     setProduit(undefined);
     setCru(undefined);
-    setVigneron(undefined);
-    if (vigneronId !== undefined && Number.isInteger(Number(vigneronId))) {
+    if (Number.isInteger(parseInt(vigneronId, 10))) {
       fetchWineMakerByID(vigneronId)
         .then((response) => {
           setVigneron(response);
@@ -48,16 +47,13 @@ export function Vigneron() {
     }
   }, [vigneronId]);
 
-  useEffect(() => {
-    if (vigneron === null) {
-      setLocation("/vignerons");
-    }
-  }, [vigneron]);
-
   return (
     <div>
+      {/* eslint-disable-next-line no-nested-ternary */}
       {vigneron === undefined ? (
         <Loading />
+      ) : vigneron === null ? (
+        <Error />
       ) : (
         <main>
           <section>
