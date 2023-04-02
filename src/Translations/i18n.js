@@ -7,6 +7,7 @@ import card from "./card.json";
 import loading from "./loading.json";
 import cardlist from "./cardList.json";
 import vigneronslist from "./vigneronsList.json";
+import vigneron from "./vigneron.json";
 
 i18next
   .use(I18nextBrowserLanguageDetector)
@@ -20,6 +21,7 @@ i18next
         cardlist: cardlist.fr,
         error: error.fr,
         vigneronslist: vigneronslist.fr,
+        vigneron: vigneron.fr,
       },
       en: {
         navbar: navbar.en,
@@ -28,6 +30,7 @@ i18next
         cardlist: cardlist.en,
         error: error.en,
         vigneronslist: vigneronslist.en,
+        vigneron: vigneron.en,
       },
     },
     fallbackLng: "en",
