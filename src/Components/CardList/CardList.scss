@@ -1,21 +1,30 @@
+@import "src/assets/style/_variables";
+
 .CardList {
     font-family: handwritting, 'sans-serif';
     text-align: center;
   
     .all-cards {
-      display: inline-block;
-      margin: 3px;
+      transition: background-color 0.5s;
+      padding: 5px;
+      border-radius: $border-radius;
     }
+  .all-cards:hover {
+    background-color: #314015;
+  }
+
     .all-cards>button{
       all: unset;
     }
     .all-visited-cards {
-      display: inline-block;
-      margin: 3px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
     }
   
     form {
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       margin-top: 1rem;
@@ -44,4 +53,32 @@
   font-size: small;
   padding: 1vh;
   font-family: 'gotham', sans-serif;
+}
+
+.list-all-cards{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+@media screen and (min-width:767px){
+  .CardList{
+    form {
+      flex-direction: row;
+    }
+  }
+  .list-all-cards{
+    flex-direction: row;
+
+  }
+}
+
+@media screen and (min-width:1000px){
+  .list-all-cards{
+    width: 70%;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+  }
 }

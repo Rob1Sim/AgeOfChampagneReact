@@ -71,3 +71,19 @@ export function fetchWineMakerFromCard(wineMakerId) {
 export function wineMakerImgUrl(wineMakerId) {
   return `${BASE_URL}/vignerons/${wineMakerId}/image`;
 }
+
+/**
+ * Récupère les cartes en spécifiant un filtre
+ * @param filter
+ * @returns {Promise<any>}
+ */
+export function getCardWithFilter(filter) {
+  if (filter !== "") {
+    return fetchWithCredentials(
+      `${BASE_URL}/cartes?order%5B${filter}%5D=asc`
+    ).then((response) => response.json());
+  }
+  return fetchWithCredentials(`${BASE_URL}/cartes`).then((response) =>
+    response.json()
+  );
+}
