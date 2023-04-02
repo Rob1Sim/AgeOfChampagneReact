@@ -1,0 +1,82 @@
+@import "src/assets/style/_variables";
+@import "src/assets/style/_mixins";
+.display-on{
+  display: none;
+}
+
+.display-off{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  gap: 5%;
+}
+.display-off>*{
+  width: 90%;
+  margin-bottom: 5%;
+}
+
+section:nth-child(1){
+  display: flex;
+  align-items: center;
+  gap: 5%;
+}
+
+section:nth-child(2){
+  width: 90%;
+}
+
+
+section:nth-child(3)>*{
+  @include dark-green-border;
+}
+
+section>img{
+  width: 40%;
+  height: 90%;
+  @include dark-green-border;
+
+}
+section>*>label{
+  font-weight: bold;
+}
+section>*>label>p{
+  font-weight: normal;
+}
+
+aside{
+  width: 80%;
+}
+
+.vintageInfos {
+  display: flex;
+  align-items: center;
+  gap: 5%;
+}
+
+.productInfos {
+  display: flex;
+  align-items: center;
+  gap: 5%;
+}
+
+
+@media screen and (min-width:767px){
+  section>img{
+    width: 30%;
+    height: 70%;
+
+  }
+
+}
+
+@media screen and (min-width:1000px){
+  main{
+    padding-top: 5%;
+  }
+  section>img{
+    width: 15%;
+    height: 70%;
+
+  }
+}
