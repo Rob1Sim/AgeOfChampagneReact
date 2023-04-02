@@ -27,8 +27,8 @@ section:nth-child(2){
 }
 
 
-section:nth-child(3)>*{
-  @include dark-green-border;
+.section-vigneron:nth-child(3)>*{
+  border-color: white;
 }
 
 section>img{
