@@ -1,0 +1,12 @@
+{
+  "fr": {
+    "alt-img": "Une personne qui est perdue",
+    "error-message" : "Oups ! La page que vous recherchez n'existe pas !"
+  },
+
+  "en": {
+    "alt-img": "A lost person",
+    "error-message" : "Oops! The page you are looking for does not exist !"
+
+  }
+}

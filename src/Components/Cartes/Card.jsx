@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link, useLocation, useRoute } from "wouter";
+import { Link, useRoute } from "wouter";
 import { useTranslation } from "react-i18next";
 import {
   fetchCard,
@@ -8,10 +8,11 @@ import {
   fetchWineMakerFromCard,
   wineMakerImgUrl,
 } from "../../services/api/cards";
-import Loading from "../Loading";
+import Loading from "../Loading/Loading";
 import Map from "./Map";
 import "./Card.scss";
 import BugerButtonContext from "../../contexts/burgerMenu/index";
+import Error from "../Error/Error";
 
 function Card() {
   // TODO: Changer le lien qui redirige vers la page du vignerons quand il y aura une page de vigneron
@@ -19,7 +20,6 @@ function Card() {
   const { t } = useTranslation("card");
   const { opened } = useContext(BugerButtonContext);
   const [card, setCard] = useState();
-  const [, setLocation] = useLocation();
   const [cru, setCru] = useState();
   const [wineMaker, setWineMaker] = useState();
   useEffect(() => {
@@ -28,9 +28,6 @@ function Card() {
     setWineMaker(undefined);
     if (Number.isInteger(parseInt(cardId, 10))) {
       fetchCard(cardId).then((response) => {
-        if (response === null) {
-          setLocation("/cartes");
-        }
         setCard(response);
         // Récupération du cru à partir de la relation
         fetchCruFromCard(response.cru_r).then((cruResponse) => {
@@ -55,7 +52,8 @@ function Card() {
   return (
     <div>
       {card === undefined || cru === undefined ? (
-        <Loading />
+        // eslint-disable-next-line react/jsx-no-useless-fragment
+        <>{card === null ? <Error /> : <Loading />}</>
       ) : (
         /** si le menu burger est ouvert alors la class est display on * */
         <main className={opened ? "display-on" : "display-off"}>
