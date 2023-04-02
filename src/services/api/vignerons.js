@@ -1,5 +1,9 @@
 export const BASE_URL = "https://127.0.0.1:8000/api";
 
+export function fetchWithCredentials(url) {
+  return fetch(url, { credentials: "include" });
+}
+
 export function fetchAllVignerons() {
   return fetch(`${BASE_URL}/vignerons`).then((response) => response.json());
 }
@@ -14,9 +18,7 @@ export function vigneronImgUrl(vigneronId) {
  * @returns {Promise<Response>}
  */
 export function fetchCruFromVigneron(cruId) {
-  return fetch(`${BASE_URL}/crus/${cruId}`, {
-    credentials: "include",
-  }).then((response) => {
+  return fetchWithCredentials(`${BASE_URL}/crus/${cruId}`).then((response) => {
     if (!response.ok) {
       return Promise.resolve(null);
     }
@@ -30,12 +32,12 @@ export function fetchCruFromVigneron(cruId) {
  * @returns {Promise<Response>}
  */
 export function fetchProduitFromVigneron(produitId) {
-  return fetch(`${BASE_URL}/produits/${produitId}`, {
-    credentials: "include",
-  }).then((response) => {
-    if (!response.ok) {
-      return Promise.resolve(null);
+  return fetchWithCredentials(`${BASE_URL}/produits/${produitId}`).then(
+    (response) => {
+      if (!response.ok) {
+        return Promise.resolve(null);
+      }
+      return response.json();
     }
-    return response.json();
-  });
+  );
 }
