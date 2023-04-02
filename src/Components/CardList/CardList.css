@@ -3,11 +3,11 @@ Error: File to import not found or unreadable: src/assets/style/_variables.
         on line 1 of CardList.scss
 
 1: @import "src/assets/style/_variables";
-2: 
+2:
 3: .CardList {
 4:     font-family: handwritting, 'sans-serif';
 5:     text-align: center;
-6:   
+6:
 
 Backtrace:
 CardList.scss:1
