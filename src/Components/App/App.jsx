@@ -8,7 +8,8 @@ import Card from "../Cartes/Card";
 import BurgerMenuProvider from "../../contexts/burgerMenu/burgerMenu";
 import AnimationList from "../AnimationList/AnimationList";
 import Error from "../Error/Error";
-import VigneronList from "../VigneronList/VigneronList.jsx";
+import VigneronList from "../VigneronList/VigneronList";
+import Loading from "../Loading/Loading";
 
 function App() {
   return (
@@ -34,7 +35,6 @@ function App() {
               <h1>Les partenaires</h1>
             </Route>
             <Route path="/vignerons">
-              <h1>Vignerons</h1>
               <VigneronList />
             </Route>
             <Route path="/profile">
