@@ -32,9 +32,6 @@ function App() {
               <h1>Les animations</h1>
               <AnimationList />
             </Route>
-            <Route path="/partenaires">
-              <h1>Les partenaires</h1>
-            </Route>
             <Route path="/vignerons">
               <VigneronList />
             </Route>
