@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Redirect, useLocation, useRoute } from "wouter";
+import { useTranslation } from "react-i18next";
 import {
   vigneronImgUrl,
   fetchProduitFromVigneron,
@@ -14,6 +15,7 @@ export function Vigneron() {
   const [cru, setCru] = useState();
   const [produit, setProduit] = useState();
   const [location, setLocation] = useLocation();
+  const { t } = useTranslation("vigneron");
 
   useEffect(() => {
     setProduit(undefined);
@@ -58,54 +60,54 @@ export function Vigneron() {
       ) : (
         <main>
           <section>
-            <img src={vigneronImgUrl(vigneronId)} />
+            <img src={vigneronImgUrl(vigneronId)} alt={t("alt-winemaker")} />
             <aside>
               <h2>
                 {vigneron.nom} {vigneron.prenom}
               </h2>
               <label>
-                <h4>Adresse du vigneron</h4>
+                {t("winemaker-adress")}
                 <p>{vigneron.adresse}</p>
               </label>
               <label>
-                <h4>Code postal du vigneron</h4>
+                {t("winemaker-postal-code")}
                 <p>{vigneron.code_postal}</p>
               </label>
               <label>
-                <h4>Ville du vigneron</h4>
+                {t("winemaker-city")}
                 <p>{vigneron.ville}</p>
               </label>
             </aside>
           </section>
           <section>
-            <h3>Cru du vigneron</h3>
+            <h3>{t("vintage")}</h3>
             {cru === undefined ? (
               <Loading />
             ) : (
               <div>
                 <label>
-                  <h4>Nom du Cru</h4>
+                  {t("vintage-name")}
                   <p>{cru.libelle}</p>
                 </label>
                 <label>
-                  <h4>Informations du cru</h4>
+                  {t("vintage-infos")}
                   <p>{cru.infos}</p>
                 </label>
               </div>
             )}
           </section>
           <section>
-            <h3>Produit du vigneron</h3>
+            <h3>{t("product")}</h3>
             {produit === undefined ? (
               <Loading />
             ) : (
               <div>
                 <label>
-                  <h4>Nom du produit</h4>
+                  {t("product-name")}
                   <p>{produit.libelle}</p>
                 </label>
                 <label>
-                  <h4>Prix du produit</h4>
+                  {t("product-price")}
                   <p>{produit.prix}</p>
                 </label>
               </div>
