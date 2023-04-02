@@ -3,11 +3,12 @@ import PropTypes from "prop-types";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { useLocation } from "wouter";
 import { vigneronImgUrl } from "../../services/api/vignerons";
+import "./VigneronList.scss";
 
 export function VigneronItem({ data, onClick }) {
   const [, setLocation] = useLocation();
   return (
-    <div>
+    <div className="wineMakerList">
       <button
         type="button"
         onClick={() => {

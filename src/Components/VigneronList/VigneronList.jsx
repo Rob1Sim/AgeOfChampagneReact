@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { fetchAllVignerons } from "../../services/api/vignerons";
 import VigneronItem from "./VigneronItem";
 import Loading from "../Loading/Loading";
+import "./VigneronList.scss";
 
 export function VigneronList() {
   const [vigneronData, setVigneronData] = useState([]);
@@ -38,10 +39,10 @@ export function VigneronList() {
   }, []);
 
   return (
-    <div>
+    <div className="wineMaker">
       <h2>{t("list-winemakers")}</h2>
       {vigneronList !== undefined && vigneronList !== null ? (
-        <div>{vigneronList}</div>
+        <div className="list-all-winemakers">{vigneronList}</div>
       ) : (
         <Loading />
       )}
