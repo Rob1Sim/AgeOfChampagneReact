@@ -1,9 +1,8 @@
-import React, { useContext, useState } from "react";
-import UserContext from "../../contexts/user/index";
+import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { patchUser } from "../../services/api/users";
 
-function EditProfile() {
-  const { userData } = useContext(UserContext);
+function EditProfile({ userData }) {
   const [userLogin, setUserLogin] = useState(userData ? userData.login : "");
   const [userEmail, setUserEmail] = useState(userData ? userData.email : "");
   const [userPassword, setUserPassword] = useState("");
@@ -63,5 +62,13 @@ function EditProfile() {
     </form>
   );
 }
+
+EditProfile.propTypes = {
+  userData: PropTypes.shape({
+    id: PropTypes.number,
+    login: PropTypes.string,
+    email: PropTypes.string,
+  }).isRequired,
+};
 
 export default EditProfile;
