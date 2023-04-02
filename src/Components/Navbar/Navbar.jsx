@@ -42,7 +42,7 @@ function Navbar() {
           </li>
           <li>
             <button type="button" className="nav-link" onClick={toggleMenu}>
-              <Link href="/partenaires">{t("link-to-partners")}</Link>
+              <Link href="/vignerons">{t("link-to-partners")}</Link>
             </button>
           </li>
           <li>
