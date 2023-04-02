@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { fetchAllVignerons } from "../../services/api/vignerons";
 import VigneronItem from "./VigneronItem";
 import Loading from "../Loading/Loading";
@@ -7,6 +8,7 @@ export function VigneronList() {
   const [vigneronData, setVigneronData] = useState([]);
   const [vigneronList, setVigneronList] = useState([]);
   const [isDataAvailable, setIsDataAvailable] = useState(true);
+  const { t } = useTranslation("vigneronslist");
 
   useEffect(() => {
     setIsDataAvailable(true);
@@ -37,7 +39,7 @@ export function VigneronList() {
 
   return (
     <div>
-      <h2>Liste Vignerons</h2>
+      <h2>{t("list-winemakers")}</h2>
       {vigneronList !== undefined && vigneronList !== null ? (
         <div>{vigneronList}</div>
       ) : (
