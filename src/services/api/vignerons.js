@@ -13,6 +13,22 @@ export function vigneronImgUrl(vigneronId) {
 }
 
 /**
+ * Récupère un vigneron dans l'api
+ * @param wineMakerID
+ * @returns {Promise<Response>}
+ */
+export function fetchWineMakerByID(wineMakerID) {
+  return fetchWithCredentials(`${BASE_URL}/vignerons/${wineMakerID}`).then(
+    (response) => {
+      if (!response.ok) {
+        return Promise.resolve(null);
+      }
+      return response.json();
+    }
+  );
+}
+
+/**
  * Récupère le cru associé à un vigneron grâce à son ID
  * @param cruId
  * @returns {Promise<Response>}
