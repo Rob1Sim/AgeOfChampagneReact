@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Redirect, useRoute } from "wouter";
 import { useTranslation } from "react-i18next";
 import {
@@ -9,11 +9,13 @@ import {
 } from "../../services/api/vignerons";
 import Loading from "../Loading/Loading";
 import "./Vigneron.scss";
+import BugerButtonContext from "../../contexts/burgerMenu/index";
 import Error from "../Error/Error";
 
 export function Vigneron() {
   const [, { vigneronId }] = useRoute("/vignerons/:vigneronId");
   const [vigneron, setVigneron] = useState();
+  const { opened } = useContext(BugerButtonContext);
   const [cru, setCru] = useState();
   const [produit, setProduit] = useState();
   const { t } = useTranslation("vigneron");
@@ -55,7 +57,8 @@ export function Vigneron() {
       ) : vigneron === null ? (
         <Error />
       ) : (
-        <main>
+        // Si le menu burger est ouvert alors la class est display on
+        <main className={opened ? "display-on" : "display-off"}>
           <section>
             <img src={vigneronImgUrl(vigneronId)} alt={t("alt-winemaker")} />
             <aside>
