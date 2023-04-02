@@ -1,0 +1,27 @@
+{
+  "fr": {
+    "alt-winemaker": "Tête du vignerons",
+    "winemaker-adress": "Adresse du vigneron",
+    "winemaker-postal-code": "Code postal du vigneron",
+    "winemaker-city": "Ville du vigneron",
+    "vintage": "Cru du vigneron",
+    "vintage-name" : "Nom du cru :",
+    "vintage-infos" : "Information du cru :",
+    "product": "Produit du vigneron",
+    "product-name": "Nom du produit",
+    "product-price": "Prix du produit"
+  },
+
+  "en": {
+    "alt-winemaker": "Head of the winemaker",
+    "winemaker-adress": "Address of the winemaker",
+    "winemaker-postal-code": "Winemaker postal code",
+    "winemaker-city": "Winemaker’s city",
+    "vintage": "Winemaker’s vintage",
+    "vintage-name" : "Name of the vintage :",
+    "vintage-infos" : "Vintage information :",
+    "product": "WineMaker’s product",
+    "product-name": "Product name",
+    "product-price": "Product price"
+  }
+}
