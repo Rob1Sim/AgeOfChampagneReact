@@ -5,7 +5,8 @@ import {
   fetchProduitFromVigneron,
 } from "../../services/api/vignerons";
 import VigneronItem from "./VigneronItem";
-import Loading from "../Loading";
+import Loading from "../Loading/Loading";
+import Error from "../Error/Error";
 
 export function VigneronList() {
   const [vigneronData, setVigneronData] = useState([]);
@@ -59,7 +60,14 @@ export function VigneronList() {
   }, []);
 
   return (
-    <div>{vigneronList === undefined ? <Loading /> : <>{vigneronList}</>}</div>
+    <div>
+      <h2>Liste Vignerons</h2>
+      {vigneronList !== undefined && vigneronList !== null ? (
+        <div>{vigneronList}</div>
+      ) : (
+        <Loading />
+      )}
+    </div>
   );
 }
 
