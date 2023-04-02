@@ -30,7 +30,7 @@ function Map({ lat, long }) {
   );
 }
 
-Map.prototype = {
+Map.propTypes = {
   lat: PropTypes.number.isRequired,
   long: PropTypes.number.isRequired,
 };

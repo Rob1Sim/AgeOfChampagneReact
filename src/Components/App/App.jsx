@@ -8,6 +8,7 @@ import Card from "../Cartes/Card";
 import BurgerMenuProvider from "../../contexts/burgerMenu/burgerMenu";
 import AnimationList from "../AnimationList/AnimationList";
 import Error from "../Error/Error";
+import Profile from "../Profile/Profile";
 
 function App() {
   return (
@@ -33,7 +34,7 @@ function App() {
               <h1>Les partenaires</h1>
             </Route>
             <Route path="/profile">
-              <h1>Votre profile</h1>
+              <Profile />
             </Route>
             <Route component={Error} />
           </Switch>

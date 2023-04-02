@@ -26,7 +26,7 @@ function Language() {
     }
   };
   return (
-    <button type="button" onClick={changeLanguage}>
+    <button id="button_flag" type="button" onClick={changeLanguage}>
       <CountryFlag flag={selectedLanguage} language={language} />
     </button>
   );
