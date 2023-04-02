@@ -10,6 +10,7 @@ import AnimationList from "../AnimationList/AnimationList";
 import Error from "../Error/Error";
 import VigneronList from "../VigneronList/VigneronList";
 import Loading from "../Loading/Loading";
+import Vigneron from "../Vigneron/Vigneron.jsx";
 
 function App() {
   return (
@@ -36,6 +37,9 @@ function App() {
             </Route>
             <Route path="/vignerons">
               <VigneronList />
+            </Route>
+            <Route path="/vignerons/:vigneronsId">
+              <Vigneron />
             </Route>
             <Route path="/profile">
               <h1>Votre profile</h1>
