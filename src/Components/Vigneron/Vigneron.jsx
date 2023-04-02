@@ -8,6 +8,7 @@ import {
   fetchWineMakerByID,
 } from "../../services/api/vignerons";
 import Loading from "../Loading/Loading";
+import "./Vigneron.scss";
 
 export function Vigneron() {
   const [, { vigneronId }] = useRoute("/vignerons/:vigneronId");
@@ -65,17 +66,17 @@ export function Vigneron() {
               <h2>
                 {vigneron.nom} {vigneron.prenom}
               </h2>
-              <label>
+              <label htmlFor=".adresseVigneron">
                 {t("winemaker-adress")}
-                <p>{vigneron.adresse}</p>
+                <p className="adresseVigneron">{vigneron.adresse}</p>
               </label>
-              <label>
+              <label htmlFor=".codePostalVigneron">
                 {t("winemaker-postal-code")}
-                <p>{vigneron.code_postal}</p>
+                <p className="codePostalVigneron">{vigneron.code_postal}</p>
               </label>
-              <label>
+              <label htmlFor=".villeVigneron">
                 {t("winemaker-city")}
-                <p>{vigneron.ville}</p>
+                <p className="villeVigneron">{vigneron.ville}</p>
               </label>
             </aside>
           </section>
@@ -85,13 +86,13 @@ export function Vigneron() {
               <Loading />
             ) : (
               <div>
-                <label>
+                <label htmlFor=".nomCru">
                   {t("vintage-name")}
-                  <p>{cru.libelle}</p>
+                  <p className="nomCru">{cru.libelle}</p>
                 </label>
-                <label>
+                <label htmlFor=".infosCru">
                   {t("vintage-infos")}
-                  <p>{cru.infos}</p>
+                  <p className="infosCru">{cru.infos}</p>
                 </label>
               </div>
             )}
@@ -102,13 +103,13 @@ export function Vigneron() {
               <Loading />
             ) : (
               <div>
-                <label>
+                <label htmlFor=".nomProduit">
                   {t("product-name")}
-                  <p>{produit.libelle}</p>
+                  <p className="nomProduit">{produit.libelle}</p>
                 </label>
-                <label>
+                <label htmlFor=".prixProduit">
                   {t("product-price")}
-                  <p>{produit.prix}</p>
+                  <p className="prixProduit">{produit.prix}</p>
                 </label>
               </div>
             )}
