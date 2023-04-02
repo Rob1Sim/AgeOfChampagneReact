@@ -1,33 +1,44 @@
 .CardList {
-  font-family: handwritting, 'sans-serif';
-  text-align: center; }
-  .CardList .all-cards {
-    display: inline-block;
-    margin: 3px; }
-  .CardList .all-visited-cards {
-    display: inline-block;
-    margin: 3px; }
-  .CardList form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1rem;
-    gap: 1%; }
-    .CardList form label {
-      font-family: 'Indie Flower', handwriting, sans-serif;
-      display: block;
-      margin-right: 1em; }
-    .CardList form input[type="text"] {
-      border: #B5BE6B 1px solid;
-      padding: 1vh; }
-    .CardList form input[type="text"]:focus {
-      outline: #b48d4b none; }
+  font-family: handwritting, "sans-serif";
+  text-align: center;
+}
+.CardList .all-cards {
+  display: inline-block;
+  margin: 3px;
+}
+.CardList .all-cards > button {
+  all: unset;
+}
+.CardList .all-visited-cards {
+  display: inline-block;
+  margin: 3px;
+}
+.CardList form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  gap: 1%;
+}
+.CardList form label {
+  font-family: "Indie Flower", handwriting, sans-serif;
+  display: block;
+  margin-right: 1em;
+}
+.CardList form input[type=text] {
+  border: #B5BE6B 1px solid;
+  padding: 1vh;
+}
+.CardList form input[type=text]:focus {
+  outline: #b48d4b none;
+}
 
 .dropdown-category {
   all: unset;
   border: #B5BE6B 1px solid;
   font-size: small;
   padding: 1vh;
-  font-family: 'gotham', sans-serif; }
+  font-family: "gotham", sans-serif;
+}
 
 /*# sourceMappingURL=CardList.css.map */
