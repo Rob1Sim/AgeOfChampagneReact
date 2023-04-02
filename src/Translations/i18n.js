@@ -1,6 +1,7 @@
 import i18next from "i18next";
 import { initReactI18next } from "react-i18next";
 import I18nextBrowserLanguageDetector from "i18next-browser-languagedetector";
+import error from "./error.json";
 import navbar from "./navbar.json";
 import card from "./card.json";
 import loading from "./loading.json";
@@ -18,6 +19,7 @@ i18next
         loading: loading.fr,
         cardlist: cardlist.fr,
         animation: animation.fr,
+        error: error.fr,
       },
       en: {
         navbar: navbar.en,
@@ -25,6 +27,7 @@ i18next
         loading: loading.en,
         animation: animation.en,
         cardlist: cardlist.en,
+        error: error.en,
       },
     },
     fallbackLng: "en",
