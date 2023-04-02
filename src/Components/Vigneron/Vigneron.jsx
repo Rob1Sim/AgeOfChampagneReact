@@ -64,21 +64,21 @@ export function Vigneron() {
                 {vigneron.nom} {vigneron.prenom}
               </h2>
               <label>
-                <h4>Adresse</h4>
+                <h4>Adresse du vigneron</h4>
                 <p>{vigneron.adresse}</p>
               </label>
               <label>
-                <h4>Code Postal</h4>
+                <h4>Code postal du vigneron</h4>
                 <p>{vigneron.code_postal}</p>
               </label>
               <label>
-                <h4>Ville</h4>
+                <h4>Ville du vigneron</h4>
                 <p>{vigneron.ville}</p>
               </label>
             </aside>
           </section>
           <section>
-            <h3>Cru</h3>
+            <h3>Cru du vigneron</h3>
             {cru === undefined ? (
               <Loading />
             ) : (
@@ -88,19 +88,20 @@ export function Vigneron() {
                   <p>{cru.libelle}</p>
                 </label>
                 <label>
-                  <h4>Cru infos</h4>
+                  <h4>Informations du cru</h4>
                   <p>{cru.infos}</p>
                 </label>
               </div>
             )}
           </section>
           <section>
+            <h3>Produit du vigneron</h3>
             {produit === undefined ? (
               <Loading />
             ) : (
               <div>
                 <label>
-                  <h4>Nom du Produit</h4>
+                  <h4>Nom du produit</h4>
                   <p>{produit.libelle}</p>
                 </label>
                 <label>
