@@ -1,0 +1,56 @@
+@import "src/assets/style/_variables";
+@import "src/assets/style/_mixins";
+
+.wineMakerList {
+  font-family: handwritting, 'sans-serif';
+  text-align: center;
+
+  .all-winemakers {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  p {
+    font-size: 1.7em;
+    font-family: handwritting, 'sans-serif';
+  }
+
+  img {
+    width: 30%;
+    @include dark-green-border;
+  }
+
+
+}
+
+.wineMaker{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5%;
+}
+
+
+@media screen and (min-width:767px){
+  .wineMakerList {
+    img {
+      width: 15%;
+    }
+
+    .wineMaker {
+      flex-direction: row;
+    }
+  }
+
+}
+
+@media screen and (min-width:1000px){
+  .wineMakerList {
+    img {
+      width: 15%;
+    }
+
+  }
+}
