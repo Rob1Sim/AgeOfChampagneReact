@@ -5,6 +5,7 @@ import {
   fetchAnimationById,
 } from "../../services/api/animations";
 import Loading from "../Loading";
+import "./Animation.scss";
 import { useTranslation } from "react-i18next";
 
 export default function Animation() {
@@ -37,19 +38,19 @@ export default function Animation() {
         <div className="animation-item">
           <section>
             <img src={animationImgUrl(animId)} alt="Carte" />
-            <aside className="info">
+            <aside>
               <h2>{animation.nom}</h2>
-              <label>
+              <label htmlFor=".infoAnim">
                 {t("animation-hdeb")}
-                <p>{animation.horaireDeb}</p>
+                <p className="infoAnim">{animation.horaireDeb}</p>
               </label>
-              <label>
+              <label htmlFor=".infoAnim">
                 {t("animation-hfin")}
-                <p>{animation.horaireFin}</p>
+                <p className="infoAnim">{animation.horaireFin}</p>
               </label>
-              <label>
+              <label htmlFor=".infoAnim">
                 {t("animation-prix")}
-                <p>{animation.prix} &euro;</p>
+                <p className="infoAnim">{animation.prix} &euro;</p>
               </label>
             </aside>
           </section>
