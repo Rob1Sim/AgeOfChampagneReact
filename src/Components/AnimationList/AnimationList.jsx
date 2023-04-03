@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { fetchAllAnimations } from "../../services/api/animations";
 import AnimationItem from "./AnimationItem";
+import Loading from "../Loading/Loading";
 
 function AnimationList() {
   const [, setAnimationData] = useState([]);
@@ -34,7 +35,16 @@ function AnimationList() {
   }, []);
 
   // eslint-disable-next-line react/jsx-no-useless-fragment,react/react-in-jsx-scope
-  return <>{animationList}</>;
+  return (
+    <div>
+      <h2>Toutes les animations</h2>
+      {animationList !== undefined && animationList !== null ? (
+        <div>{animationList}</div>
+      ) : (
+        <Loading />
+      )}
+    </div>
+  );
 }
 
 export default AnimationList;
