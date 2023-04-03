@@ -9,9 +9,8 @@ import BurgerMenuProvider from "../../contexts/burgerMenu/burgerMenu";
 import AnimationList from "../AnimationList/AnimationList";
 import Error from "../Error/Error";
 import VigneronList from "../VigneronList/VigneronList";
-import Vigneron from "../Vigneron/Vigneron.jsx";
+import Vigneron from "../Vigneron/Vigneron";
 import Profile from "../Profile/Profile";
-
 
 function App() {
   return (
@@ -30,7 +29,6 @@ function App() {
               <Card />
             </Route>
             <Route path="/animations">
-              <h1>Les animations</h1>
               <AnimationList />
             </Route>
             <Route path="/vignerons">
@@ -51,4 +49,3 @@ function App() {
 }
 
 export default App;
-
