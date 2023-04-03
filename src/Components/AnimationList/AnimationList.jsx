@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { fetchAllAnimations } from "../../services/api/animations";
 import AnimationItem from "./AnimationItem";
 import Loading from "../Loading/Loading";
@@ -7,6 +8,7 @@ function AnimationList() {
   const [, setAnimationData] = useState([]);
   const [animationList, setAnimationList] = useState([]);
   const [, setIsDataAvailable] = useState(true);
+  const { t } = useTranslation("animationslist");
 
   useEffect(() => {
     setIsDataAvailable(true);
@@ -30,6 +32,7 @@ function AnimationList() {
         }
       })
       .catch((error) => {
+        // eslint-disable-next-line no-console
         console.error("Error fetching animation:", error);
       });
   }, []);
@@ -37,7 +40,7 @@ function AnimationList() {
   // eslint-disable-next-line react/jsx-no-useless-fragment,react/react-in-jsx-scope
   return (
     <div>
-      <h2>Toutes les animations</h2>
+      <h2>{t("list-animations")}</h2>
       {animationList !== undefined && animationList !== null ? (
         <div>{animationList}</div>
       ) : (
