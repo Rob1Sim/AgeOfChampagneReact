@@ -96,7 +96,7 @@ export function Vigneron() {
               </div>
             )}
           </section>
-          <section>
+          <section className="section-vigneron">
             <h3>{t("product")}</h3>
             {produit === undefined ? (
               <Loading />

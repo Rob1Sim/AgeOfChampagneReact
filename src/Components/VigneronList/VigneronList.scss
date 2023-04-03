@@ -5,6 +5,17 @@
   font-family: handwritting, 'sans-serif';
   text-align: center;
 
+  button{
+    all: unset;
+    transition: all 0.5s;
+  }
+
+  button:hover{
+    background-color: $dark-green;
+    border-radius: $border-radius;
+    color: white;
+    cursor: pointer;
+  }
   .all-winemakers {
     width: 50%;
     display: flex;
