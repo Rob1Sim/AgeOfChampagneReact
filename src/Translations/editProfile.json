@@ -4,5 +4,12 @@
     "Edit-Email": "Email",
     "Edit-Password": "Mot de passe",
     "Edit-Submit": "Modifier le profil"
+  },
+
+  "en": {
+    "Edit-Login": "Login",
+    "Edit-Email": "Email",
+    "Edit-Password": "Password",
+    "Edit-Submit": "Edit profil"
   }
 }
