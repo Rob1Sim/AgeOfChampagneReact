@@ -6,6 +6,7 @@ import navbar from "./navbar.json";
 import card from "./card.json";
 import loading from "./loading.json";
 import cardlist from "./cardList.json";
+import animation from "./animation.json";
 import vigneronslist from "./vigneronsList.json";
 import vigneron from "./vigneron.json";
 import animationslist from "./animationsList.json";
@@ -20,6 +21,7 @@ i18next
         card: card.fr,
         loading: loading.fr,
         cardlist: cardlist.fr,
+        animation: animation.fr,
         error: error.fr,
         vigneronslist: vigneronslist.fr,
         vigneron: vigneron.fr,
@@ -29,6 +31,7 @@ i18next
         navbar: navbar.en,
         card: card.en,
         loading: loading.en,
+        animation: animation.en,
         cardlist: cardlist.en,
         error: error.en,
         vigneronslist: vigneronslist.en,
