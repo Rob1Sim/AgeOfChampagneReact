@@ -9,10 +9,10 @@ function Profile() {
   const { t } = useTranslation("editProfile");
   return (
     <main>
-      <h1>Bonjour {userData.login}</h1>
+      <h1>{t("Profil-Hello")} {userData.login}</h1>
       {isEditing ? <EditProfile userData={userData} /> : ""}
       <button type="button" onClick={() => setEditing(!isEditing)}>
-        {isEditing ? "Annuler" : "Modifier son profil"}
+        {isEditing ? t("Profil-Cancel") : t("Profil-Edit")}
       </button>
     </main>
   );
