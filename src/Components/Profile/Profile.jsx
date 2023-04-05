@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
 import EditProfile from "./EditProfile";
 import UserContext from "../../contexts/user/index";
+import "./Profile";
 
 function Profile() {
   const { userData } = useContext(UserContext);
