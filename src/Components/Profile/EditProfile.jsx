@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import { useTranslation } from "react-i18next";
 import { patchUser } from "../../services/api/users";
-import {useTranslation} from "react-i18next";
 
 function EditProfile({ userData }) {
   const [userLogin, setUserLogin] = useState(userData ? userData.login : "");
