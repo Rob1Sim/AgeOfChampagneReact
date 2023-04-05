@@ -3,5 +3,11 @@
     "Profil-Hello": "Bonjour",
     "Profil-Cancel": "Annuler",
     "Profile-Edit": "Modifier son profil"
+  },
+
+  "en": {
+    "Profil-Hello": "Hello",
+    "Profil-Cancel": "Cancel",
+    "Profile-Edit": "Edit his profile"
   }
 }
