@@ -29,7 +29,7 @@ function EditProfile({ userData }) {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label htmlFor="name">Identifiant :</label>
+        <label htmlFor="name">{t("Edit-Login")}</label>
         <input
           type="text"
           id="name"
@@ -39,7 +39,7 @@ function EditProfile({ userData }) {
         />
       </div>
       <div>
-        <label htmlFor="email">Email :</label>
+        <label htmlFor="email">{t("Edit-Email")}</label>
         <input
           type="email"
           id="email"
@@ -49,7 +49,7 @@ function EditProfile({ userData }) {
         />
       </div>
       <div>
-        <label htmlFor="password">Password :</label>
+        <label htmlFor="password">{t("Edit-Password")}</label>
         <input
           type="password"
           id="password"
@@ -59,7 +59,7 @@ function EditProfile({ userData }) {
         />
       </div>
       <div>
-        <button type="submit">Modifier</button>
+        <button type="submit">{t("Edit-Submit")}</button>
       </div>
     </form>
   );
