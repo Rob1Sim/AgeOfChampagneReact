@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { patchUser } from "../../services/api/users";
+import {useTranslation} from "react-i18next";
 
 function EditProfile({ userData }) {
   const [userLogin, setUserLogin] = useState(userData ? userData.login : "");
   const [userEmail, setUserEmail] = useState(userData ? userData.email : "");
   const [userPassword, setUserPassword] = useState("");
+  const { t } = useTranslation("editProfile");
 
   const handleSubmit = (event) => {
     event.preventDefault();
