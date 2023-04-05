@@ -118,7 +118,7 @@ function CardList() {
           onChange={handleSelectChange}
         >
           <option value defaultValue="category">
-            Catégorie
+            {t("card-cat")}
           </option>
           <option value="nom">Nom</option>
           <option value="type">Type</option>

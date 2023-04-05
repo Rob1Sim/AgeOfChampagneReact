@@ -37,6 +37,7 @@ function App() {
             </Route>
             <Route path="/partenaires">
               <h1>Les partenaires</h1>
+            </Route>
             <Route path="/vignerons">
               <VigneronList />
             </Route>
