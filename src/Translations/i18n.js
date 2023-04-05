@@ -10,6 +10,7 @@ import vigneronslist from "./vigneronsList.json";
 import vigneron from "./vigneron.json";
 import animationslist from "./animationsList.json";
 import editProfile from "./editProfile.json";
+import profile from "./profile.json";
 
 i18next
   .use(I18nextBrowserLanguageDetector)
@@ -26,6 +27,7 @@ i18next
         vigneron: vigneron.fr,
         animationslist: animationslist.fr,
         editProfile: editProfile.fr,
+        profile: profile.fr,
       },
       en: {
         navbar: navbar.en,
@@ -37,6 +39,7 @@ i18next
         vigneron: vigneron.en,
         animationslist: animationslist.en,
         editProfile: editProfile.en,
+        profile: profile.en,
       },
     },
     fallbackLng: "en",
