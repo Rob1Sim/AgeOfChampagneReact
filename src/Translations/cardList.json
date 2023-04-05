@@ -2,12 +2,14 @@
     "fr": {
       "card-search": "Chercher une carte :",
       "recent-card": "Cartes recemment visitees :",
-      "list-card": "Toutes les cartes :"
+      "list-card": "Toutes les cartes :",
+      "card-cat": "Catégorie"
     },
   
     "en": {
       "card-search": "Search a card :",
       "recent-card": "Recently visited cards :",
-      "list-card": "All cards :"
+      "list-card": "All cards :",
+      "card-cat": "Category"
     }
   }
