@@ -10,14 +10,19 @@ function Profile() {
   const { t } = useTranslation("editProfile");
   return (
     <main>
-      <h1>
+      <h1 className="ProfilTypoTitre">
         {t("Profil-Hello")} {userData.login}
       </h1>
-        <div>
-            {userData.email}
-        </div>
+      <div className="donneesProfil">
+        {userData.login}
+        {userData.email}
+      </div>
       {isEditing ? <EditProfile userData={userData} /> : ""}
-      <button type="button" onClick={() => setEditing(!isEditing)}>
+      <button
+        className="btn_btn-lg_btn-primaryProfil"
+        type="button"
+        onClick={() => setEditing(!isEditing)}
+      >
         {isEditing ? t("Profil-Cancel") : t("Profil-Edit")}
       </button>
     </main>
