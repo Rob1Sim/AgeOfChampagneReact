@@ -13,6 +13,9 @@
     background-color: #314015;
   }
 
+    .all-cards>button{
+      all: unset;
+    }
     .all-visited-cards {
       width: 100%;
       display: flex;

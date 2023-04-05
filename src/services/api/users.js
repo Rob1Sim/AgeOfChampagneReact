@@ -20,3 +20,14 @@ export function logoutUrl() {
 export function loginToAdminPanel() {
   return `${BASE_URL_WITHOUT_API}/admin`;
 }
+
+export function patchUser(userId, user) {
+  fetch(`${BASE_URL}/comptes/${userId}`, {
+    method: "PATCH",
+    headers: {
+      "Content-type": "application/merge-patch+json",
+    },
+    credentials: "include",
+    body: JSON.stringify(user),
+  }).then((response) => response.json());
+}

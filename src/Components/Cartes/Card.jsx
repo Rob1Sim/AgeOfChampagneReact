@@ -15,7 +15,6 @@ import BugerButtonContext from "../../contexts/burgerMenu/index";
 import Error from "../Error/Error";
 
 function Card() {
-  // TODO: Changer le lien qui redirige vers la page du vignerons quand il y aura une page de vigneron
   const [, { cardId }] = useRoute("/cartes/:cardId");
   const { t } = useTranslation("card");
   const { opened } = useContext(BugerButtonContext);
@@ -85,7 +84,7 @@ function Card() {
                   src={wineMakerImgUrl(wineMaker.id)}
                   alt={t("alt-winemaker")}
                 />
-                <Link href="/cartes">
+                <Link href={`/vignerons/${wineMaker.id}`}>
                   {wineMaker.prenom} {wineMaker.nom}
                 </Link>
               </div>

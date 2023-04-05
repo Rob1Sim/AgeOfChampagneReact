@@ -9,6 +9,9 @@ import BurgerMenuProvider from "../../contexts/burgerMenu/burgerMenu";
 import Animation from "../Animation/Animation";
 import AnimationList from "../AnimationList/AnimationList";
 import Error from "../Error/Error";
+import VigneronList from "../VigneronList/VigneronList";
+import Vigneron from "../Vigneron/Vigneron";
+import Profile from "../Profile/Profile";
 
 function App() {
   return (
@@ -27,7 +30,6 @@ function App() {
               <Card />
             </Route>
             <Route path="/animations">
-              <h1>Les animations</h1>
               <AnimationList />
             </Route>
             <Route path="/animations/:animId">
@@ -35,9 +37,14 @@ function App() {
             </Route>
             <Route path="/partenaires">
               <h1>Les partenaires</h1>
+            <Route path="/vignerons">
+              <VigneronList />
+            </Route>
+            <Route path="/vignerons/:vigneronsId">
+              <Vigneron />
             </Route>
             <Route path="/profile">
-              <h1>Votre profile</h1>
+              <Profile />
             </Route>
             <Route component={Error} />
           </Switch>
