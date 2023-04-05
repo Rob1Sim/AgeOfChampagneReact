@@ -4,7 +4,7 @@ import {
   animationImgUrl,
   fetchAnimationById,
 } from "../../services/api/animations";
-import Loading from "../Loading";
+import Loading from "../Loading/Loading";
 import "./Animation.scss";
 import { useTranslation } from "react-i18next";
 
