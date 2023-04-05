@@ -1,0 +1,13 @@
+{
+  "fr": {
+    "animation-hdeb": "Horaire de début :",
+    "animation-hfin": "Horaire de fin :",
+    "animation-prix": "Prix d'entrée :"
+  },
+
+  "en": {
+    "animation-hdeb": "Start time :",
+    "animation-hfin": "End time :",
+    "animation-prix": "Admission price :"
+  }
+}

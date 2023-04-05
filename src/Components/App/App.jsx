@@ -6,6 +6,7 @@ import Provider from "../../contexts/user/Provider";
 import CardList from "../CardList/CardList";
 import Card from "../Cartes/Card";
 import BurgerMenuProvider from "../../contexts/burgerMenu/burgerMenu";
+import Animation from "../Animation/Animation";
 import AnimationList from "../AnimationList/AnimationList";
 import Error from "../Error/Error";
 import VigneronList from "../VigneronList/VigneronList";
@@ -30,6 +31,12 @@ function App() {
             </Route>
             <Route path="/animations">
               <AnimationList />
+            </Route>
+            <Route path="/animations/:animId">
+              <Animation />
+            </Route>
+            <Route path="/partenaires">
+              <h1>Les partenaires</h1>
             </Route>
             <Route path="/vignerons">
               <VigneronList />

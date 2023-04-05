@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/prefer-default-export
 export function handleClick(card) {
   const lastClickedCard = JSON.parse(
     window.sessionStorage.getItem("lastClickedCards") || "[]"
