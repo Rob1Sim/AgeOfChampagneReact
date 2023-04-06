@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { Redirect } from "wouter";
 import EditProfile from "./EditProfile";
 import UserContext from "../../contexts/user/index";
 import "./Profile.scss";
-import { Redirect } from "wouter";
-import Loading from "../Loading/Loading.jsx";
+import Loading from "../Loading/Loading";
 
 function Profile() {
   const { userData } = useContext(UserContext);
