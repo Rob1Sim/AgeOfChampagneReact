@@ -9,9 +9,9 @@ import Loading from "../Loading/Loading";
 function Profile() {
   const { userData } = useContext(UserContext);
   const [isEditing, setEditing] = useState(false);
-  const { t } = useTranslation("editProfile");
+  const { t } = useTranslation("profile");
   return (
-    <main>
+    <main className="profile-data">
       {userData !== null ? (
         // eslint-disable-next-line react/jsx-no-useless-fragment
         <>
@@ -21,8 +21,12 @@ function Profile() {
                 {t("Profil-Hello")} {userData.login}
               </h1>
               <div className="donneesProfil">
-                {userData.login}
-                {userData.email}
+                <p>
+                  <strong>Login :</strong> {userData.login}
+                </p>
+                <p>
+                  <strong>Email </strong>: {userData.email}
+                </p>
               </div>
               {isEditing ? (
                 <EditProfile userData={userData} cancelCallBack={setEditing} />
@@ -32,7 +36,7 @@ function Profile() {
                   type="button"
                   onClick={() => setEditing(!isEditing)}
                 >
-                  {isEditing ? t("Cancel-Submit") : t("Edit-Submit")}
+                  {isEditing ? t("Cancel-Submit") : t("Profile-Edit")}
                 </button>
               )}
             </>
