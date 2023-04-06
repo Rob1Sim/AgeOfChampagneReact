@@ -3,8 +3,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope, faShare } from "@fortawesome/free-solid-svg-icons";
 import "./Footer.scss";
+import { useTranslation } from "react-i18next";
 
 function Footer() {
+  const {t} = useTranslation("footer");
   return (
     <footer>
       <ul className="f-ul">
@@ -45,7 +47,7 @@ function Footer() {
           </a>
         </li>
       </ul>
-      <p>Age of Champagne - Éditeur : Old hen Games © 2022</p>
+      <p>{t("credits")}</p>
     </footer>
   );
 }

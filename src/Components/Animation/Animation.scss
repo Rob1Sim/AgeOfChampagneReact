@@ -1,0 +1,72 @@
+.animation-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    gap: 5%;
+    margin-top: 25px;
+    width: 90%;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+    aside {
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: left;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  @media screen and (min-width:767px) {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+
+    section {
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 5%;
+      width: 50%;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+
+      aside {
+        width: 50%;
+        text-align: left;
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+
+  @media screen and (min-width:1000px) {
+    main {
+      padding-top: 5%;
+    }
+
+    section {
+      width: 70%;
+
+      img {
+        width: 30%;
+      }
+    }
+  }
+}
