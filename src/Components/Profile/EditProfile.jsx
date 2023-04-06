@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import { patchUser } from "../../services/api/users";
-import "./EditProfile.css";
+import "./EditProfile.scss";
 
-function EditProfile({ userData }) {
+function EditProfile({ userData, cancelCallBack }) {
   const [userLogin, setUserLogin] = useState(userData ? userData.login : "");
   const [userEmail, setUserEmail] = useState(userData ? userData.email : "");
   const [userPassword, setUserPassword] = useState("");
@@ -64,6 +64,13 @@ function EditProfile({ userData }) {
           <button type="submit" className="btn_update">
             {t("Edit-Submit")}
           </button>
+          <button
+            type="button"
+            className="btn_update"
+            onClick={() => cancelCallBack(false)}
+          >
+            {t("Cancel-Submit")}
+          </button>
         </div>
       </div>
     </form>
@@ -76,6 +83,7 @@ EditProfile.propTypes = {
     login: PropTypes.string,
     email: PropTypes.string,
   }).isRequired,
+  cancelCallBack: PropTypes.func.isRequired,
 };
 
 export default EditProfile;

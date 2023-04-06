@@ -25,7 +25,7 @@ function Profile() {
                 {userData.email}
               </div>
               {isEditing ? (
-                <EditProfile userData={userData} />
+                <EditProfile userData={userData} cancelCallBack={setEditing} />
               ) : (
                 <button
                   className="btn_btn-lg_btn-primaryProfil"
