@@ -10,12 +10,9 @@ import animation from "./animation.json";
 import vigneronslist from "./vigneronsList.json";
 import vigneron from "./vigneron.json";
 import animationslist from "./animationsList.json";
-<<<<<<< src/Translations/i18n.js
 import editProfile from "./editProfile.json";
 import profile from "./profile.json";
-=======
 import footer from "./footer.json";
->>>>>>> src/Translations/i18n.js
 
 i18next
   .use(I18nextBrowserLanguageDetector)
