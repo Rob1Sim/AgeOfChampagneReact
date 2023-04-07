@@ -1,6 +1,36 @@
+@import "src/assets/style/_variables";
+@import "src/assets/style/_mixins";
 
+.list-animation{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
+}
 
 .animationItem>button{
   all: unset;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.5s;
+
+
+}
+.animationItem>button>p{
+  font-family: handwritting, 'sans-serif';
+  text-align: center;
+  font-size: 1.5em;
+}
+.animationItem>button:hover{
+  background-color: $dark-green;
+  border-radius: $border-radius;
+  color: white;
+  cursor: pointer;
+
+}
+.animationItem>button>img{
+  width: 30%;
+  border-radius: 15px;
+  @include dark-green-border;
 }

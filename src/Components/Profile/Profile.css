@@ -1,30 +1,25 @@
-.ProfilTypoTitre{
-    font-size: 150%;
-    justify-content: center;
-    font-family: "handwritting", sans-serif;
-    font-weight: lighter;
-    display:flex;
-    width: 63%;
-    margin-left: 3%;
-    flex-flow: column;
-}
-.donneesProfil{
-    display:flex;
-    margin-left: 4%;
-    align-self: self-start;
-    font-family: 'cooper-heweit', sans-serif;
-    flex-direction: column;
-    width:50%;
-    text-decoration: none;
-    font-size: 200%;
-}
-.btn_btn-lg_btn-primaryProfil{
-    background-color: #a68b6a;
-    font-size: 100%;
-    color:white;text-decoration: none;
-    border-radius: 22px;
-    width: 50%;
-    text-align: center;
-    height: 25%;
+.ProfilTypoTitre {
+  font-family: "handwritting", sans-serif;
+  font-weight: lighter;
 }
 
+.btn_btn-lg_btn-primaryProfil {
+  background-color: #a68b6a;
+  font-size: 100%;
+  color: white;
+  text-decoration: none;
+  border-radius: 22px;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.profile-data {
+  gap: 2vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/*# sourceMappingURL=Profile.css.map */

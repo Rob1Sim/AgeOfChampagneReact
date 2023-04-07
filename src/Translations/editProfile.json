@@ -3,13 +3,15 @@
     "Edit-Login": "Identifiant",
     "Edit-Email": "Email",
     "Edit-Password": "Mot de passe",
-    "Edit-Submit": "Modifier le profil"
+    "Edit-Submit": "Modifier le profil",
+    "Cancel-Submit": "Arrêter la modification"
   },
 
   "en": {
     "Edit-Login": "Login",
     "Edit-Email": "Email",
     "Edit-Password": "Password",
-    "Edit-Submit": "Edit profil"
+    "Edit-Submit": "Edit profil",
+    "Cancel-Submit": "Cancel modification"
   }
 }

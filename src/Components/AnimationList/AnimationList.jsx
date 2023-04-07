@@ -1,14 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { fetchAllAnimations } from "../../services/api/animations";
 import AnimationItem from "./AnimationItem";
 import Loading from "../Loading/Loading";
+import "./AnimationList.scss";
+import BugerButtonContext from "../../contexts/burgerMenu/index";
 
 function AnimationList() {
   const [, setAnimationData] = useState([]);
   const [animationList, setAnimationList] = useState([]);
   const [, setIsDataAvailable] = useState(true);
   const { t } = useTranslation("animationslist");
+  const { opened } = useContext(BugerButtonContext);
 
   useEffect(() => {
     setIsDataAvailable(true);
@@ -39,7 +42,7 @@ function AnimationList() {
 
   // eslint-disable-next-line react/jsx-no-useless-fragment,react/react-in-jsx-scope
   return (
-    <div>
+    <div className={opened ? "display-on" : "list-animation"}>
       <h2>{t("list-animations")}</h2>
       {animationList !== undefined && animationList !== null ? (
         <div>{animationList}</div>
